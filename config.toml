@@ -1,4 +1,107 @@
-baseURL = "http://wataridori.co.jp/"
+baseurl = "http://blog.wataridori.co.jp"
 languageCode = "ja"
+defaultContentLanguage = "ja"
 title = "WATARIDORI BLOG"
-title = "peak"
+theme = "peak"
+paginate = 7
+# googleAnalytics = "UA-123-45"
+
+[permalinks]
+  post = "/:year/:month/:slug/"
+
+[taxonomies]
+  tag = "tags"
+  archive = "archives"
+
+[author]
+  name = "wataridori inc."
+  bio = "未知の体験とワクワクを。"
+  # job = "Your job title"
+  location = "Tokyo, Japan"
+  # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
+  # gravatarEmail = "thibaud.lepretre@gmail.com"
+  # Your profile picture
+  # Overwritten by your gravatar image if `author.gravatarEmail` is filled
+  picture = "https://scontent-nrt1-1.xx.fbcdn.net/v/t1.0-9/19224789_182661958933442_2474881938221948784_n.jpg?oh=88f4743b01b95aaac186cb28bff236c1&oe=5A76E9E7"
+  # Your Twitter username without the @. E.g : thibaudlepretre
+  # twitter = "thibaudlepretre"
+  # Your google plus profile id. E.g : +ThibaudLepretre or 114625208755123718311
+  # googlePlus = "+ThibaudLepretre"
+
+# Menu Configuration
+[[menu.main]]
+  weight = 1
+  identifier = "home"
+  name = "Home"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-home\"></i>"
+  url = "/"
+[[menu.main]]
+  weight = 2
+  identifier = "tags"
+  name = "Tags"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-tags\"></i>"
+  url = "/tags"
+[[menu.main]]
+  weight = 3
+  identifier = "archives"
+  name = "Archives"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-archive\"></i>"
+  url = "/archives"
+[[menu.main]]
+  weight = 4
+  identifier = "about"
+  name = "About"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-question\"></i>"
+  url = "/#about"
+[[menu.links]]
+  weight = 1
+  identifier = "github"
+  name = "GitHub"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-github\"></i>"
+  url = "https://github.com/wtrdr"
+[[menu.links]]
+  weight = 2
+  identifier = "rss"
+  name = "RSS"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-rss\"></i>"
+  url = "/index.xml"
+
+[params]
+  dateFormat = "2006/01/02"
+  keywords = ["トリログ", "ツカログ"]
+  clearReading = true
+  hierarchicalCategories = false
+
+  description = "株）ワタリドリのブログ"
+  sidebarBehavior = 1
+  coverImage = "https://scontent-nrt1-1.xx.fbcdn.net/v/t1.0-9/22814162_234859400380364_3321877450147728537_n.jpg?oh=e327f31842cdd52b91ff342cf99214e2&oe=5A7919E4"
+
+  imageGallery = true
+  thumbnailImage = true
+  thumbnailImagePosition = "bottom"
+  autoThumbnailImage = true
+
+  # Your favicon path, default is "/favicon.png"
+  # favicon = "/favicon.png"
+
+  [params.header.rightLink]
+    class = "facebook-link"
+    icon = "facebook-official"
+    url = "https://www.facebook.com/wataridori.co.jp"
+
+  # customCSS = ["css/foo.css"]
+  # customJS = ["js/foo.js"]
+
+  # Sharing options
+  # Comment and uncomment to enable or disable sharing options
+  # If you wanna add a sharing option, read user documentation :
+  # Tranquilpeak configuration > Theme configuration > sharing-options
+  [[params.sharingOptions]]
+    name = "Facebook"
+    icon = "fa-facebook-official"
+    url = "https://www.facebook.com/sharer/sharer.php?u=%s"
+
+  [[params.sharingOptions]]
+    name = "Twitter"
+    icon = "fa-twitter"
+    url = "https://twitter.com/intent/tweet?text=%s"
