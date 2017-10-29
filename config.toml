@@ -5,6 +5,7 @@ defaultContentLanguage = "ja"
 title = "WATARIDORI BLOG"
 theme = "peak"
 paginate = 7
+canonifyurls = true
 # googleAnalytics = "UA-123-45"
 
 [permalinks]
