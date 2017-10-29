@@ -1,3 +1,4 @@
+publishDir = "docs"
 baseurl = "http://blog.wataridori.co.jp"
 languageCode = "ja"
 defaultContentLanguage = "ja"
