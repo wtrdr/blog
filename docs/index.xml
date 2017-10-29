@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>WATARIDORI BLOG</title>
-    <link>http://blog.wataridori.co.jp/</link>
+    <link>https://wtrdr.github.io/blog/</link>
     <description>Recent content on WATARIDORI BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Tue, 24 Oct 2017 00:42:14 +0900</lastBuildDate>
     
-	<atom:link href="http://blog.wataridori.co.jp/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://wtrdr.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Test</title>
-      <link>http://blog.wataridori.co.jp/2017/10/test/</link>
+      <link>https://wtrdr.github.io/blog/2017/10/test/</link>
       <pubDate>Tue, 24 Oct 2017 00:42:14 +0900</pubDate>
       
-      <guid>http://blog.wataridori.co.jp/2017/10/test/</guid>
+      <guid>https://wtrdr.github.io/blog/2017/10/test/</guid>
       <description> test abc
 hogehgoe </description>
     </item>
