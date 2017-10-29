@@ -70,7 +70,7 @@ canonifyurls = true
 
 [params]
   dateFormat = "2006/01/02"
-  keywords = ["トリログ", "ツカログ"]
+  keywords = ["ワタリドリ", "ブログ", "wataridori inc."]
   clearReading = true
   hierarchicalCategories = false
 
