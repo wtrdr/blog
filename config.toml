@@ -81,6 +81,9 @@ paginate = 7
   thumbnailImagePosition = "bottom"
   autoThumbnailImage = true
 
+  # fbAdminIds = 
+  # fbAppId = 
+
   # Your favicon path, default is "/favicon.png"
   # favicon = "/favicon.png"
 
@@ -89,13 +92,6 @@ paginate = 7
     icon = "facebook-official"
     url = "https://www.facebook.com/wataridori.co.jp"
 
-  # customCSS = ["css/foo.css"]
-  # customJS = ["js/foo.js"]
-
-  # Sharing options
-  # Comment and uncomment to enable or disable sharing options
-  # If you wanna add a sharing option, read user documentation :
-  # Tranquilpeak configuration > Theme configuration > sharing-options
   [[params.sharingOptions]]
     name = "Facebook"
     icon = "fa-facebook-official"
