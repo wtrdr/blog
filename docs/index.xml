@@ -18,7 +18,8 @@
       
       <guid>https://wtrdr.github.io/blog/2017/10/test/</guid>
       <description> test abc
-hogehgoe </description>
+hogehgoe まだ続くブログ移行計画！
+ linkを適当に降る urlとその適当に降ったurlのmappingを保持しておく あとで使う   &amp;lt; Nokogiri::XML::Element:0x3fdf7e8d36e4 name=&amp;ldquo;div&amp;rdquo; attributes=[#, #] children=[ #&amp;lt; Nokogiri::XML::Element:0x3fdf7e966bec name=&amp;ldquo;div&amp;rdquo; attributes=[#] children=[ #&amp;lt; Nokogiri::XML::Element:0x3fdf7e9660c0 name=&amp;ldquo;div&amp;rdquo; attributes=[#] children=[ #&amp;lt; Nokogiri::XML::Element:0x3fdf7e963b04 name=&amp;ldquo;iframe&amp;rdquo; attributes=[ #, #, #]&amp;gt;]&amp;gt;]&amp;gt;]&amp;gt;  </description>
     </item>
     
   </channel>
