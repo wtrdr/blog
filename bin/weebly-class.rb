@@ -43,9 +43,8 @@ class Weebly
   end
 
   def to_md
-    p @title
     md = ''
-    # md << "# #{@title}\n"
+    md << "# #{@title}\n"
     md << @contents.map do |content|
       content.md(path: @path)
     end.join("  \n")

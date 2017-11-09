@@ -30,22 +30,54 @@ end
 
 class Spacer < Content
   def md(path: '')
-    "  "
+    # "  "
   end
 end
 
 class Image < Content
   def md(path: '')
-    p @content
-    p path
-    FileUtils::mkdir_p 'foo/bar'
-    src = @content.css('img').attribute('src').value
-    filename = src.match(/.+\/(.+?)$/)[1]
-    "{{< image classes='' src='/testimg.jpg' thumbnail='/testimg.jpg' title='' >}}"
+    # text = @content.text
+
+    # src = @content.css('img').attribute('src').value.gsub(/\?.+$/, '')
+    # filename = src.match(/.+\/(.+?)$/)[1]
+
+    # store = "static/#{path}"
+    # FileUtils::mkdir_p store
+    # FileUtils.cp "static#{src}", store
+
+    # %Q({{< image src="/#{path}/#{filename}" title="#{text}" >}})
   end
 end
 
 class Paragraph < Content
+  def md(path: '')
+    result = ''
+    @content.children.each do |p|
+      elem = p.name
+      result << if elem == 'text'
+                  p.text
+                elsif elem == 'br'
+                  "  \n"
+                elsif elem == 'a'
+                  text = p.children.text
+                  value = p.attribute('href').value
+                  href = value.match(/.*\/(.+)$/)[1]
+                  "[#{text}](#{href})"
+                elsif elem == 'u'
+                  "<u>**#{p.text}**</u>"
+                elsif elem == 'ol'
+                  p p
+                  brとかaとかの処理が出てくるのでこの辺recursiveに
+                  1.
+                  1.
+                  1.
+                  raise
+                else
+                  raise elem
+                end
+    end
+    result
+  end
 end
 
 class ImageGallery < Content

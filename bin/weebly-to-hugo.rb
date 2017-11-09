@@ -33,9 +33,6 @@ def main
   p ">> Total posts: #{weeblies.size}"
   weeblies.each do |weebly|
     puts weebly.to_md
-    puts '==========================='
-    puts '==========================='
-    puts '==========================='
   end
 end
 
