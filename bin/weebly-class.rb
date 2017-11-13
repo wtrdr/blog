@@ -47,7 +47,7 @@ class Weebly
     md << "# #{@title}\n"
     md << @contents.map do |content|
       content.md(path: @path)
-    end.join("  \n")
+    end.join("\n")
     md
   end
 end

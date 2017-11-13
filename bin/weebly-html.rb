@@ -1,3 +1,14 @@
+require 'open-uri'
+
+def download(src, dst)
+  url = "https://wataridori.weebly.com#{src}"
+  open(dst, 'wb') do |output|
+    open(url) do |data|
+      output.write(data.read)
+    end
+  end
+end
+
 class Content
   def initialize(content)
     @content = content
@@ -10,7 +21,7 @@ class Contents < Content
     return '' if @content == []
     @content.map do |c|
       c.md(path: path)
-    end.join("  \n")
+    end.join("\n")
   end
 end
 
@@ -39,44 +50,77 @@ class Image < Content
     # text = @content.text
 
     # src = @content.css('img').attribute('src').value.gsub(/\?.+$/, '')
-    # filename = src.match(/.+\/(.+?)$/)[1]
+    # name = File.basename(src)
 
-    # store = "static/#{path}"
-    # FileUtils::mkdir_p store
-    # FileUtils.cp "static#{src}", store
+    # dir = "static/img/#{path}"
+    # dst = "#{dir}/#{name}"
+    # FileUtils::mkdir_p dir
 
-    # %Q({{< image src="/#{path}/#{filename}" title="#{text}" >}})
+    # download(src, dst)
+    # %Q({{< image src="/img/#{path}/#{name}" title="#{text}" >}})
   end
 end
 
 class Paragraph < Content
   def md(path: '')
-    result = ''
-    @content.children.each do |p|
-      elem = p.name
-      result << if elem == 'text'
-                  p.text
-                elsif elem == 'br'
-                  "  \n"
-                elsif elem == 'a'
-                  text = p.children.text
-                  value = p.attribute('href').value
-                  href = value.match(/.*\/(.+)$/)[1]
-                  "[#{text}](#{href})"
-                elsif elem == 'u'
-                  "<u>**#{p.text}**</u>"
-                elsif elem == 'ol'
-                  p p
-                  brとかaとかの処理が出てくるのでこの辺recursiveに
-                  1.
-                  1.
-                  1.
-                  raise
-                else
-                  raise elem
-                end
+    # @content.children.map { |p| parse_p(p) }.join('')
+  end
+
+  private
+
+  def parse_p(p)
+    elem = p.name
+    if elem == 'text'
+      return p.text
+    elsif elem == 'br'
+      return "\n"
+    elsif elem == 'a'
+      text = p.children.text
+      value = p.attribute('href').value
+      href = value.start_with?("http") ?
+        value :
+        value.match(/.*\/(.+)$/)[1]
+      return "[#{text}](#{href})"
+    elsif elem == 'u'
+      return "<u>**#{p.text}**</u>"
+    elsif elem == 'ol'
+      result = p.css('li').map do |pp|
+        res = '1. '
+        res << pp.children.map do |ppp|
+          result = parse_p(ppp)
+          result = "#{result}   " if ppp.name == 'br'
+          result
+        end.join('')
+        res.strip
+      end.join("\n")
+      return "\n#{result}"
+    elsif elem == 'ul'
+      result = p.css('li').map do |pp|
+        res = '- '
+        res << pp.children.map do |ppp|
+          result = parse_p(ppp)
+          result = "#{result}   " if ppp.name == 'br'
+          result
+        end.join('')
+        res.strip
+      end.join("\n")
+      return "\n#{result}"
+    elsif elem == 'span'
+      p.children.map do |pp|
+        parse_p(pp)
+      end.join('')
+    elsif elem == 'strong'
+      res = p.children.map { |pp| parse_p(pp) }.join('')
+      return "**#{res}**"
+    elsif elem == 'em'
+      res = p.children.map { |pp| parse_p(pp) }.join('')
+      return "*#{res}*"
+    elsif elem == 'font'
+      return "### #{p.text}" if p.attribute('size')&.value == '4'
+      raise elem
+    else
+      raise elem
     end
-    result
   end
 end
 
