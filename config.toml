@@ -103,3 +103,6 @@ canonifyurls = true
     name = "Twitter"
     icon = "fa-twitter"
     url = "https://twitter.com/intent/tweet?text=%s"
+
+[blackfriday]
+  extensions = ["hardLineBreak"]
