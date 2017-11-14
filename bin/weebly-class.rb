@@ -42,9 +42,28 @@ class Weebly
       .map { |content| re_contents(content) }
   end
 
+  def header
+    head = <<EOF
+---
+title: #{@title}
+date: #{DateTime.strptime(@date, '%d/%m/%Y').strftime('%Y-%m-%d')}
+draft: false
+tags:
+- fixme
+keywords:
+- fixme
+thumbnailImagePosition: left
+EOF
+    head << @contents.map do |content|
+      content.head(path: @path)
+    end.reject{|c| c.nil? || c == ''}.join("\n")
+    head << "---\n"
+    head
+  end
+
   def to_md
     md = ''
-    md << "# #{@title}\n"
+    md << header
     md << @contents.map do |content|
       content.md(path: @path)
     end.join("\n")
