@@ -29,24 +29,43 @@ def re_contents(content)
 end
 
 class Weebly
+  attr_reader :path, :title, :date
+
   def initialize(post)
     title = post.css('h2.blog-title')
     href = title.css('a').attribute('href').value
 
     @path = href.match(/.+\/(.+?)$/)[1]
     @title = title.text
-    @date = post.css('span.date-text').text # dd/mm/yyyy
+    @date = DateTime
+      .strptime(
+        post.css('span.date-text').text, # dd/mm/yyyy
+        '%d/%m/%Y'
+      ).strftime('%Y-%m-%d')
     @contents = post
       .css('.blog-content')
       .children
       .map { |content| re_contents(content) }
   end
 
-  def header
+  def write_with(paths)
+    dir = "content/post"
+    FileUtils::mkdir_p dir
+
+    dst = "#{dir}/#{@date}.md"
+    File.open(dst, 'w') do |file|
+      blog = to_md(paths)
+      file.write blog
+    end
+  end
+
+  private
+
+  def header(paths)
     head = <<EOF
 ---
 title: #{@title}
-date: #{DateTime.strptime(@date, '%d/%m/%Y').strftime('%Y-%m-%d')}
+date: #{@date}
 draft: false
 tags:
 - fixme
@@ -55,17 +74,17 @@ keywords:
 thumbnailImagePosition: left
 EOF
     head << @contents.map do |content|
-      content.head(path: @path)
+      content.head(path: @path, paths: paths)
     end.reject{|c| c.nil? || c == ''}.join("\n")
     head << "---\n"
     head
   end
 
-  def to_md
+  def to_md(paths)
     md = ''
-    md << header
+    md << header(paths)
     md << @contents.map do |content|
-      content.md(path: @path)
+      content.md(path: @path, paths: paths)
     end.join("\n")
     md
   end

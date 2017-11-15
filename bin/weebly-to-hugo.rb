@@ -31,9 +31,12 @@ def main
       .map { |post| Weebly.new(post) }
   end.flatten
   p ">> Total posts: #{weeblies.size}"
+  paths = weeblies.reduce({}) do |prev, w|
+    prev[w.path] = w.date
+    prev
+  end
   weeblies.each do |weebly|
-    puts weebly.to_md
-    raise
+    weebly.write_with(paths)
   end
 end
 

@@ -8,6 +8,7 @@ keywords:
 - fixme
 thumbnailImagePosition: left
 ---
+<!--more-->
 {{< image classes="fig-100 clear center" thumbnail-width="60%" src="/img/rasberrypi3-1/23555431-10213552292469054-125083070-o_orig.jpg" title="" >}}
 ## アイデア11選からネタアプリに着手！
 まだ全然絞り込みをかけているわけではないが、

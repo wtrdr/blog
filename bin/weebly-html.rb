@@ -13,33 +13,33 @@ class Content
   def initialize(content)
     @content = content
   end
-  def md(path: ''); end
-  def head(path: ''); end
+  def md(path: '', paths:); end
+  def head(path: '', paths:); end
 end
 
 class Contents < Content
-  def md(path: '')
+  def md(path: '', paths:)
     return '' if @content == []
     @content.map do |c|
-      c.md(path: path)
+      c.md(path: path, paths: paths)
     end.join("\n")
   end
-  def head(path: '')
+  def head(path: '', paths:)
     return nil if @content == []
     @content.map do |c|
-      c.head(path: path)
+      c.head(path: path, paths: paths)
     end.reject{|h| h.nil? || h == ''}.join("\n")
   end
 end
 
 class Title < Content
-  def md(path: '')
+  def md(path: '', paths:)
     "## #{@content.text}"
   end
 end
 
 class Youtube < Content
-  def md(path: '')
+  def md(path: '', paths:)
     src = @content.css('iframe').attribute('src').value
     id = src.match(/.+\/(.+)\?/)[1]
     "{{< youtube #{id} >}}"
@@ -47,35 +47,35 @@ class Youtube < Content
 end
 
 class Spacer < Content
-  def md(path: '')
+  def md(path: '', paths:)
     "\n"
   end
 end
 
 class Image < Content
-  def md(path: '')
+  def md(path: '', paths:)
     text = @content.text
 
     src = @content.css('img').attribute('src').value.gsub(/\?.+$/, '')
     name = File.basename(src)
 
-    dir = "static/img/#{path}"
+    dir = "static/img/#{paths[path]}"
     dst = "#{dir}/#{name}"
     FileUtils::mkdir_p dir
 
     download(src, dst)
-    %Q({{< image classes="fig-100 clear center" thumbnail-width="60%" src="/img/#{path}/#{name}" title="#{text}" >}})
+    %Q({{< image classes="fig-100 clear center" thumbnail-width="60%" src="/img/#{paths[path]}/#{name}" title="#{text}" >}})
   end
 end
 
 class Paragraph < Content
-  def md(path: '')
-    @content.children.map { |p| parse_p(p) }.join('')
+  def md(path: '', paths:)
+    @content.children.map { |p| parse_p(p, path, paths) }.join('')
   end
 
   private
 
-  def parse_p(p)
+  def parse_p(p, path, paths)
     elem = p.name
     if elem == 'text'
       return p.text
@@ -84,17 +84,16 @@ class Paragraph < Content
     elsif elem == 'a'
       text = p.children.text
       value = p.attribute('href').value
-      href = value.start_with?("http") ?
-        value :
-        value.match(/.*\/(.+)$/)[1]
-      return "[#{text}](#{href})"
+      return value if value.start_with?("http")
+      value = value.match(/.*\/(.+)$/)[1]
+      %Q([#{text}]({{< relref "post/#{paths[value]}.md" >}}))
     elsif elem == 'u'
       return "<u>**#{p.text}**</u>"
     elsif elem == 'ol'
       result = p.css('li').map do |pp|
         res = '1. '
         res << pp.children.map do |ppp|
-          result = parse_p(ppp)
+          result = parse_p(ppp, path, paths)
           result = "#{result}      " if ppp.name == 'br'
           result
         end.join('')
@@ -105,7 +104,7 @@ class Paragraph < Content
       result = p.css('li').map do |pp|
         res = '- '
         res << pp.children.map do |ppp|
-          result = parse_p(ppp)
+          result = parse_p(ppp, path, paths)
           result = "#{result}      " if ppp.name == 'br'
           result
         end.join('')
@@ -114,13 +113,13 @@ class Paragraph < Content
       return "\n\n#{result}"
     elsif elem == 'span'
       p.children.map do |pp|
-        parse_p(pp)
+        parse_p(pp, path, paths)
       end.join('')
     elsif elem == 'strong'
-      res = p.children.map { |pp| parse_p(pp) }.join('')
+      res = p.children.map { |pp| parse_p(pp, path, paths) }.join('')
       return "**#{res}**"
     elsif elem == 'em'
-      res = p.children.map { |pp| parse_p(pp) }.join('')
+      res = p.children.map { |pp| parse_p(pp, path, paths) }.join('')
       return "*#{res}*"
     elsif elem == 'font'
       return "### #{p.text}" if p.attribute('size')&.value == '4'
@@ -132,17 +131,17 @@ class Paragraph < Content
 end
 
 class ImageGallery < Content
-  def md(path: '')
+  def md(path: '', paths:)
     srcs = @content.css('a').map do |content|
       src = content.attribute('href').value.gsub(/\?.+$/, '')
       name = File.basename(src)
 
-      dir = "static/img/#{path}"
+      dir = "static/img/#{paths[path]}"
       dst = "#{dir}/#{name}"
       FileUtils::mkdir_p dir
 
       download(src, dst)
-      "/img/#{path}/#{name}"
+      "/img/#{paths[path]}/#{name}"
     end
     if srcs.size == 1
       %Q({{< image classes="fig-100 clear center" thumbnail-width="60%" src="#{src}" >}})
@@ -160,28 +159,28 @@ class ImageGallery < Content
     end
   end
 
-  def head(path: '')
+  def head(path: '', paths:)
     srcs = @content.css('a').map do |content|
       src = content.attribute('href').value.gsub(/\?.+$/, '')
       name = File.basename(src)
-      "/img/#{path}/#{name}"
+      "/img/#{paths[path]}/#{name}"
     end
     return nil unless srcs.size >= 5
     res = "gallery:\n"
     res << srcs.map {|src| "- #{src}" }.join("\n")
-    res
+    "#{res}\n"
   end
 
 end
 
 class Hr < Content
-  def md(path: '')
+  def md(path: '', paths:)
     "--------------------------"
   end
 end
 
 class Blockquote < Content
-  def md(path: '')
+  def md(path: '', paths:)
     "> #{@content.text}"
   end
 end
