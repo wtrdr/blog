@@ -4,7 +4,7 @@ languageCode = "ja"
 defaultContentLanguage = "ja"
 title = "WATARIDORI BLOG"
 theme = "peak"
-paginate = 7
+paginate = 10
 canonifyurls = true
 # googleAnalytics = "UA-123-45"
 
