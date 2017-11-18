@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gcp on WATARIDORI BLOG</title>
-    <link>https://wtrdr.github.io/tags/gcp/</link>
+    <link>https://wtrdr.github.io/blog/tags/gcp/</link>
     <description>Recent content in Gcp on WATARIDORI BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 16 Jun 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://wtrdr.github.io/tags/gcp/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://wtrdr.github.io/blog/tags/gcp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Google Cloud Next Tokyo 2017</title>
-      <link>https://wtrdr.github.io/2017/06/google-cloud-next-tokyo-2017/</link>
+      <link>https://wtrdr.github.io/blog/2017/06/google-cloud-next-tokyo-2017/</link>
       <pubDate>Fri, 16 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://wtrdr.github.io/2017/06/google-cloud-next-tokyo-2017/</guid>
+      <guid>https://wtrdr.github.io/blog/2017/06/google-cloud-next-tokyo-2017/</guid>
       <description>Google Cloudが主催しているGoogle Cloud Next Tokyoというイベントが東京で開催されたので行ってきた。結構ツメツメで一つの時間帯に4,5セッシ</description>
     </item>
     
