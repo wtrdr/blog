@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on WATARIDORI BLOG</title>
+    <link>https://wtrdr.github.io/page/</link>
+    <description>Recent content in Pages on WATARIDORI BLOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 18 Nov 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://wtrdr.github.io/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About Us</title>
+      <link>https://wtrdr.github.io/page/about-us/</link>
+      <pubDate>Sat, 18 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://wtrdr.github.io/page/about-us/</guid>
+      <description>About 株式会社ワタリドリ 2017年5月1日くらいに鳥が元々持っていた会社の商号を変更したりしてできた会社。 「自由に飛び回り未知の体験で毎日をあふ</description>
+    </item>
+    
+  </channel>
+</rss>

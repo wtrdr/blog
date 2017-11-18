@@ -1,0 +1,1087 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+
+  
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+    <title>RasberryPi3と戯れる -その１-</title>
+    <meta name="author" content="wataridori inc.">
+    <meta name="keywords" content="株式会社ワタリドリ, wataridori inc., blog, wtrdr, ワタリドリ, ブログ, wataridori inc.">
+
+    <link rel="icon" href="https://wtrdr.github.io/favicon.png">
+    
+
+    
+    <meta name="description" content="RasberryPi3と戯れる -その１-">
+    <meta property="og:description" content="RasberryPi3と戯れる -その１-">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="RasberryPi3と戯れる -その１-">
+    <meta property="og:url" content="/2017/11/rasberrypi3%E3%81%A8%E6%88%AF%E3%82%8C%E3%82%8B--%E3%81%9D%E3%81%AE%EF%BC%91-/">
+    <meta property="og:site_name" content="WATARIDORI BLOG">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="WATARIDORI BLOG">
+    <meta name="twitter:description" content="RasberryPi3と戯れる -その１-">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="https://scontent-nrt1-1.xx.fbcdn.net/v/t1.0-9/19224789_182661958933442_2474881938221948784_n.jpg?oh=88f4743b01b95aaac186cb28bff236c1&oe=5A76E9E7">
+    
+
+    
+      <meta property="og:image" content="https://wtrdr.github.io/img/2017-11-11/23555431-10213552292469054-125083070-o_orig.jpg">
+    
+    
+      <meta property="og:image" content="https://wtrdr.github.io/img/2017-11-11/23555431-10213552292469054-125083070-o_orig.jpg">
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://wtrdr.github.io/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://wtrdr.github.io/css/custom.css">
+      
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://wtrdr.github.io/">WATARIDORI BLOG</a>
+  </div>
+  
+    
+      <a class="header-right-icon facebook-link"
+         href="https://www.facebook.com/wataridori.co.jp" target="_blank" rel="noopener">
+    
+    
+      <i class="fa fa-lg fa-facebook-official"></i>
+    
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://wtrdr.github.io/">
+          <img class="sidebar-profile-picture" src="https://scontent-nrt1-1.xx.fbcdn.net/v/t1.0-9/19224789_182661958933442_2474881938221948784_n.jpg?oh=88f4743b01b95aaac186cb28bff236c1&amp;oe=5A76E9E7" alt="プロフィール画像" />
+        </a>
+        <h4 class="sidebar-profile-name">wataridori inc.</h4>
+        
+          <h5 class="sidebar-profile-bio">未知の体験とワクワクを。</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wtrdr.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">ホーム</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wtrdr.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">タグ</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wtrdr.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">アーカイブ</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wtrdr.github.io/page/about-us">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">プロフィール</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/wtrdr" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wtrdr.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('/img/2017-11-11/23555431-10213552292469054-125083070-o_orig.jpg')"
+       data-behavior="4">
+    
+      <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      RasberryPi3と戯れる -その１-
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-11-11T00:00:00Z">
+        
+  
+  
+  
+  
+    2017/11/11
+  
+
+      </time>
+    
+    
+  <a class="link-unstyled" href="https://wtrdr.github.io/tags/%E3%83%88%E3%83%AA%E3%83%AD%E3%82%B0/">トリログ</a>
+
+  <a class="link-unstyled" href="https://wtrdr.github.io/tags/%E6%8C%91%E6%88%A6/">挑戦</a>
+
+  <a class="link-unstyled" href="https://wtrdr.github.io/tags/%E5%89%B5%E9%80%A0/">創造</a>
+
+  <a class="link-unstyled" href="https://wtrdr.github.io/tags/%E6%84%9F%E6%80%A7/">感性</a>
+
+  <a class="link-unstyled" href="https://wtrdr.github.io/tags/tech/">Tech</a>
+
+
+  </div>
+
+
+</div>
+
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<h2 id="アイデア11選からネタアプリに着手">アイデア11選からネタアプリに着手！</h2>
+
+<p>まだ全然絞り込みをかけているわけではないが、<br />
+とりあえず嫁が何やらラズパイに興味を持ったみたいなので二人でやりはじめた。</p>
+
+<p><a href="http://amzn.asia/31EwJUt">RaspberryPiで学ぶ電子工作</a></p>
+
+<p>これにしたがって少し形にしてみよう。最終の目的物とかは存在しない　笑<br />
+多少輪読会みたいな雰囲気があるかもしれない。</p>
+
+<h2 id="準備するものが色々ある">準備するものが色々ある。</h2>
+
+<p>必要そうなものは次の通り</p>
+
+<ul>
+<li>Raspberry Pi 3 Model B<br /></li>
+<li>秋月電子通商から<a href="http://akizukidenshi.com/catalog/g/gK-10852/">パーツセット</a><br /></li>
+<li>MicroSD 8GB Class10（後で購入）<br />
+  OS（1.5GB）が入ればなんでもいいと思っている<br /></li>
+<li>電源（後で購入）<br />
+  実はMicroUSBで2.5Aが推奨らしい。<br />
+  フルパワー出したければということだが、家にあるのは1Aのしかない。。。<br />
+  せめて1.5Aか2Aくらいのやつが必要そうだ。<br />
+<br /></li>
+</ul>
+
+<p>初回はMicroSDと電源がなかったので開封の儀で終わってしまった笑<br />
+後日購入してとりあえずLチカ（本の3章くらいまで）をやる。</p>
+
+<h2 id="秋葉原で購入したものたち">秋葉原で購入したものたち</h2>
+
+<ul>
+<li>USB HUB<br />
+  最近は電源を取れるUSB HUBがあるんだな。知らなかった。<br />
+  各ポートMax 2Aで合わせて3.5Aまで出力できるらしいこれ。<br /></li>
+<li>MicroSD 8G class10<br />
+  なんか思ったより安かったけど、容量高いやつはとても高かった。<br />
+  classにより値段が変わるのもやはりそうなんだがハイクラスを作るのはどのあたりが大変なのか。<br />
+<br /></li>
+</ul>
+
+<p>
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure fig-50" >
+  
+    <a class="fancybox" href="https://wtrdr.github.io/img/2017-11-11/23516327-10213552293869089-1114421541-o_orig.jpg" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://wtrdr.github.io/img/2017-11-11/23516327-10213552293869089-1114421541-o_orig.jpg" >
+  
+    </a>
+  
+  
+</div>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure fig-50" >
+  
+    <a class="fancybox" href="https://wtrdr.github.io/img/2017-11-11/23555365-10213552292589057-1979969146-o_orig.jpg" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://wtrdr.github.io/img/2017-11-11/23555365-10213552292589057-1979969146-o_orig.jpg" >
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+
+<h2 id="1-初回install">1. 初回Install</h2>
+
+<p>いくつかやり方があるみたいだが、必要なものもそれぞれ違いそうだ。</p>
+
+<p>手段1: <a href="https://www.raspberrypi.org/downloads/noobs/">noobsインストーラー</a>を使う方法</p>
+
+<ol>
+<li>Noobsインストーラーのzipを解凍<br /></li>
+<li>SDにコピペする<br /></li>
+<li>SDをRasberry Piに差し込んでHDMIとキーボードとマウスを差し込んでGUIでInstall になると思う。<br />
+<br /></li>
+</ol>
+
+<p>この方法が本には書いてあった。<br />
+このタイミングでHDMIのディスプレイと有線キーボードと有線マウスが必要になるのだろう。</p>
+
+<p>でこのやり方だと</p>
+
+<ul>
+<li>家のPCとあれこれ接続し直すのめんどくさい<br /></li>
+<li>有線マウス持っていない（おそらくここでしか使わないために買うのあれだ）<br /></li>
+<li>嫁と二人で行うのにHDMIディスプレイ1個しかない<br />
+<br /></li>
+</ul>
+
+<p>ということで別な手段でやってみることにした。<br />
+2章にして本を逸脱し始める。</p>
+
+<p>手段2: 直接RaspbibanをSDに焼いてPCからsshする</p>
+
+<ol>
+<li><a href="https://www.raspberrypi.org/downloads/raspbian/">raspbian</a>をダウンロード（desktop欲しい人は多分Desktopの方が必要）<br /></li>
+<li>MircoSDをフォーマット<br />
+  今回はmacのディスクユーティリティを使用<br />
+  ファイルシステムはFATを選択<br />
+  名前は大文字じゃないといけないっぽい<br /></li>
+<li>書き込むためのソフト（<a href="https://etcher.io/">etcher</a>）をダウンロード<br />
+  多分コマンドでもやろうと思えばできそうではある。<br /></li>
+<li>Etcherを起動して 1. でダウンロードしたzipを選んで書き込む<br /></li>
+<li>sshがデフォルトでできるようにする<br />
+  <a href="https://www.raspberrypi.org/blog/a-security-update-for-raspbian-pixel/">この記事</a>によると昔はデフォルトでsshできたらしいけど、今はboot directoryにsshというファイルを置かないとあかんらしい。<br />
+  <code>Volume/boot</code>にsshファイルを登録しておく<br />
+  参考: <a href="https://qiita.com/mascii/items/7d955395158d4231aef6">qiita</a><br /></li>
+<li>mac &lt;=&gt; RaspberryPiをLANで繋ぐ<br /></li>
+<li>作ったSDカードをRapsberyy Piに刺して、電源供給。<br /></li>
+<li>1分くらい待ってから<br />
+  <code>ssh pi@raspberrypi.local</code><br />
+  これでRaspberryPiの中に侵入できるようになった（localで）<br /></li>
+
+<li><p>RaspberryPiのnetwork設定をする<br />
+  今の状態だとmac &lt;=&gt; raspberryの有線LAN繋いでないと接続できないので、<br />
+  家のrouter経由でお互い無線通信できるようにする。<br />
+  <a href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md">この記事</a>によると</p>
+
+<p><code>sudo iwlist wlan0 scan</code></p>
+
+<p>このコマンドで無線LAN一覧が取れる。<br />
+  確かに一覧の中にうちのネットワークがいるぞ！</p>
+
+<p><code>wpa-supplicant</code>というファイルを編集することによって接続ができるようになるみたい。</p>
+
+<p><code>wpa_passphrase &quot;ssidssid&quot; &quot;ssidpassword&quot;</code></p>
+
+<p>というコマンドによって暗号化されたパスワードが使えるらしいので実行。<br />
+  出力された内容をコピーしておく。</p>
+
+<p><code>sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</code></p>
+
+<p>この末尾に貼り付け。保存。（Ctrl + X, Yで保存して抜けられる）</p>
+
+<p><code>wpa_cli -i wlan0 reconfigure</code></p>
+
+<p>これ叩いて、ifconfig wlan0にIPアドレスが入っていたら大丈夫かな。</p></li>
+
+<li><p>mac &lt;=&gt; Raspberry PiのLANを外してもリモートで接続できるようにする<br />
+  routerの設定でRaspberryPiのMACアドレスに対して固定IPを割り当てる<br />
+  RaspberryPiのアップデートしておく<br />
+  <code>sudo apt-get update</code><br />
+  <code>sudo apt-get upgrade</code><br />
+  RaspberryPiからLAN線を抜いて再起動（電源抜いて刺し直す）<br />
+  macはLAN線を抜いて再起動<br />
+  <code>ssh pi@192.168.11.5</code>（自分で決めたipアドレス）<br />
+  これで繋がるはず。</p></li>
+</ol>
+
+<p>※ ダウンロードがうまく行ってなかったっぽく、一度書き込みに失敗しているw<br />
+※ 一度失敗したらSDカードのフォーマットがディスクユーティリティだとうまくできなかったので<a href="https://www.sdcard.org/downloads/formatter_4/eula_mac/index.html">formatter</a>を利用。<br />
+※ フォーマットしたら一度SDカード抜き差ししてからwriteすると良さげ<br />
+※ なんかmacの設定なのかローカルと同じサブネット内にip割り当ててたらlink#4に送信されてて、最初全然繋がらなかった。。。再起動したら直った。</p>
+
+<p>
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure fig-100 center" >
+  
+    <a class="fancybox" href="https://wtrdr.github.io/img/2017-11-11/2017-11-12-10-15-37_orig.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://wtrdr.github.io/img/2017-11-11/2017-11-12-10-15-37_orig.png" style="width: 50%;">
+  
+    </a>
+  
+  
+</div>
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure fig-100 center" >
+  
+    <a class="fancybox" href="https://wtrdr.github.io/img/2017-11-11/2017-11-12-10-21-30_orig.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://wtrdr.github.io/img/2017-11-11/2017-11-12-10-21-30_orig.png" style="width: 50%;">
+  
+    </a>
+  
+  
+</div>
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure fig-100 center" >
+  
+    <a class="fancybox" href="https://wtrdr.github.io/img/2017-11-11/2017-11-12-13-52-34_orig.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://wtrdr.github.io/img/2017-11-11/2017-11-12-13-52-34_orig.png" style="width: 50%;">
+  
+    </a>
+  
+  
+</div>
+
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure fig-100 center" >
+  
+    <a class="fancybox" href="https://wtrdr.github.io/img/2017-11-11/2017-11-12-14-05-47_orig.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://wtrdr.github.io/img/2017-11-11/2017-11-12-14-05-47_orig.png" style="width: 50%;">
+  
+    </a>
+  
+  
+</div>
+</p>
+
+<h2 id="2-各種設定をしておく">2.各種設定をしておく</h2>
+
+<p>もろもろデフォルト設定なので、remoteからsshで入って各種設定をしよう。</p>
+
+<p><code>sudo raspi-config</code></p>
+
+<p>と叩くとおもむろに各種設定画面が立ち上がる</p>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+
+<div class="figure fig-100 center" >
+  
+    <img class="fig-img" src="https://wtrdr.github.io/img/2017-11-11/2017-11-12-18-13-04_orig.png" style="width: 60%;">
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+<hr />
+
+<p>まずはデフォルトのパスワードを変更しておくか。</p>
+
+<ol>
+<li>[1.Change User Password &hellip;..] を選んでEnter<br /></li>
+<li>ターミナルに戻ってくるので変更したいパスワードを二回入力<br /></li>
+<li>tabを押すと<Finish>が選べるので、選んでEnter<br /></li>
+<li>一度exitして再度sshでログイン<br />
+<br /></li>
+</ol>
+
+<hr />
+
+<p>次はpiユーザーだとあれだから、自分のユーザーを作ろう</p>
+
+<ol>
+<li>ユーザー追加して<br />
+<code>sudo adduser myuser</code><br /></li>
+<li>sudo実行できるようにして<br />
+<code>sudo gpasswd -a myuser sudo</code><br /></li>
+<li>exitして次はmyuserでログイン<br />
+<br /></li>
+</ol>
+
+<hr />
+
+<p>タイムゾーンの設定をしよう<br />
+<code>sudo raspi-config</code>をまた叩く</p>
+
+<ol>
+<li>[Locations Options] =&gt; [Change Timezone] =&gt; [Asia] =&gt; [Tokyo]<br />
+  これで東京のタイムゾーンを使ってくれるはず。<br />
+<br /></li>
+</ol>
+
+<p>次はキーボードの設定をやろうと思ったけど、普通に動くからいいや。<br />
+（本には設定しろって書いてあったりするが、raspi-configからも項目が消えててやり方わからん）</p>
+
+<hr />
+
+<p>日本語フォントのインストールをして言語を日本語に変更しておこう</p>
+
+<ol>
+<li><code>sudo apt-get install fonts-vlgothic</code><br /></li>
+<li><code>sudo raspi-config</code><br /></li>
+<li>[Localisation Option] =&gt; [Change Locale] =&gt; [Ja-JP UTF-8]を選んでおく<br />
+<br /></li>
+</ol>
+
+<hr />
+
+<p>あと最後になってしまったがなんかshellの動きがpiユーザーと違って何事かな。<br />
+とか思ってたらデフォルトは/bin/shになってた。。。<br />
+こいつを一応bashにでも変えておくか。</p>
+
+<ol>
+<li><code>sudo /usr/sbin/usermod -s /bin/bash myuser</code><br /></li>
+<li><code>sudo cp /home/pi/.profile /home/myuser</code><br /></li>
+<li><code>sudo chown myuser:myuser /home/myuser/.profile</code><br /></li>
+<li><code>sudo cp /home/pi/.bashrc /home/myuser</code><br /></li>
+<li><code>sudo chown myuser:myuser /home/myuser/.bashrc</code><br />
+<br /></li>
+</ol>
+
+<hr />
+
+<p>DONE!!!二日分の作業。インストールまででおしまい。<br />
+来週くらいからブレッドボードとかLチカとか出てきそうな雰囲気。</p>
+
+<p>ネットワークの設定にやられたなぁ。2,3時間食われてしまった。<br />
+旧式のmacのせいもあってか、microSDの焼きも失敗することが多かったのがツラミか。。。</p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-meta">
+                    
+  <a class="link-unstyled" href="https://wtrdr.github.io/tags/%E3%83%88%E3%83%AA%E3%83%AD%E3%82%B0/">トリログ</a>
+
+  <a class="link-unstyled" href="https://wtrdr.github.io/tags/%E6%8C%91%E6%88%A6/">挑戦</a>
+
+  <a class="link-unstyled" href="https://wtrdr.github.io/tags/%E5%89%B5%E9%80%A0/">創造</a>
+
+  <a class="link-unstyled" href="https://wtrdr.github.io/tags/%E6%84%9F%E6%80%A7/">感性</a>
+
+  <a class="link-unstyled" href="https://wtrdr.github.io/tags/tech/">Tech</a>
+
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">次の投稿</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://wtrdr.github.io/2017/11/100/20/5/1%E3%81%AE%E6%B3%95%E5%89%87/" data-tooltip="100/20/5/1の法則">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">前の投稿</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://wtrdr.github.io/2017/11/rasberrypi3%E3%81%A8%E6%88%AF%E3%82%8C%E3%82%8B--%E3%81%9D%E3%81%AE%EF%BC%91-/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://wtrdr.github.io/2017/11/rasberrypi3%E3%81%A8%E6%88%AF%E3%82%8C%E3%82%8B--%E3%81%9D%E3%81%AE%EF%BC%91-/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+    </ul>
+  
+</div>
+
+            
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2017 wataridori inc.. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">次の投稿</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://wtrdr.github.io/2017/11/100/20/5/1%E3%81%AE%E6%B3%95%E5%89%87/" data-tooltip="100/20/5/1の法則">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">前の投稿</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://wtrdr.github.io/2017/11/rasberrypi3%E3%81%A8%E6%88%AF%E3%82%8C%E3%82%8B--%E3%81%9D%E3%81%AE%EF%BC%91-/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://wtrdr.github.io/2017/11/rasberrypi3%E3%81%A8%E6%88%AF%E3%82%8C%E3%82%8B--%E3%81%9D%E3%81%AE%EF%BC%91-/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwtrdr.github.io%2F2017%2F11%2Frasberrypi3%25E3%2581%25A8%25E6%2588%25AF%25E3%2582%258C%25E3%2582%258B--%25E3%2581%259D%25E3%2581%25AE%25EF%25BC%2591-%2F">
+          <i class="fa fa-facebook-official"></i><span>Facebookで共有</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fwtrdr.github.io%2F2017%2F11%2Frasberrypi3%25E3%2581%25A8%25E6%2588%25AF%25E3%2582%258C%25E3%2582%258B--%25E3%2581%259D%25E3%2581%25AE%25EF%25BC%2591-%2F">
+          <i class="fa fa-twitter"></i><span>Twitterで共有</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://scontent-nrt1-1.xx.fbcdn.net/v/t1.0-9/19224789_182661958933442_2474881938221948784_n.jpg?oh=88f4743b01b95aaac186cb28bff236c1&amp;oe=5A76E9E7" alt="プロフィール画像" />
+    
+    <h4 id="about-card-name">wataridori inc.</h4>
+    
+      <div id="about-card-bio">未知の体験とワクワクを。</div>
+    
+    
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="検索" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://wtrdr.github.io/2017/11/rasberrypi3%E3%81%A8%E6%88%AF%E3%82%8C%E3%82%8B--%E3%81%9D%E3%81%AE%EF%BC%91-/">
+                <h3 class="media-heading">RasberryPi3と戯れる -その１-</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">アイデア11選からネタアプリに着手！ まだ全然絞り込みをかけているわけではないが、 とりあえず嫁が何やらラズパイに興味を持ったみたいなので二人で</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://wtrdr.github.io/2017/11/100/20/5/1%E3%81%AE%E6%B3%95%E5%89%87/">
+                <h3 class="media-heading">100/20/5/1の法則</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">アイデア出し100個完了。 ついにできた。 このやり方がいいのか全然分からないし、 一つのものについて集中的に考えた訳ではないけど、 アイデアが10</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://wtrdr.github.io/2017/10/%E9%9D%A2%E7%99%BD%E3%81%9D%E3%81%86%E3%81%AA%E3%83%A2%E3%83%8E%E3%81%AE%E8%A6%8B%E3%81%A4%E3%81%91%E6%96%B9/">
+                <h3 class="media-heading">面白そうなモノの見つけ方</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">先に結論からいこう。 自分でもこれだっていうモノは見つかっていない！ ・・・ ・・・・・・ ではこの投稿の趣旨はなんなのか。 「自分流の最近実行してい</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://wtrdr.github.io/2017/10/%E3%83%96%E3%83%AD%E3%82%B0%E7%A7%BB%E8%A1%8C%E8%A8%88%E7%94%BB--%E3%81%9D%E3%81%AE2-/">
+                <h3 class="media-heading">ブログ移行計画 -その2-</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">まだ続くブログ移行計画！ 全然移行は進んでいないが環境は徐々に整ってきた。 TODO LIST! zsh =&gt; fish [done!!] tmux install [done!!] vimrc update [done!!] hugo install weebly（このブログサイト）のzip</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://wtrdr.github.io/2017/10/%E6%97%A7%E4%BC%9A%E7%A4%BE%E3%81%8B%E3%82%89%E6%96%B0%E4%BC%9A%E7%A4%BE%E3%81%B8%E3%81%AE%E7%99%BB%E8%A8%98%E5%A4%89%E6%9B%B4-%E7%A7%BB%E8%BB%A2%E5%BE%8C%E6%89%8B%E7%B6%9A/">
+                <h3 class="media-heading">旧会社から新会社への登記変更-移転後手続</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">tmuxとかvimとかshellとかの設定に飽きてきたので、久しぶりに登記変更のことを書こう。 というかフィニッシュさせよう。 これが最後の手続</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://wtrdr.github.io/2017/10/%E5%B9%B8%E3%81%9B%E3%81%AE%E5%AE%9A%E7%BE%A9201710%E5%A4%9A%E5%88%86%E6%9C%80%E7%B5%82%E7%89%88/">
+                <h3 class="media-heading">幸せの定義201710（多分最終版）</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">結論から言うと、幸せを定義するのをやめました。 ついでに、探すのもやめた。 幸せの定義、今までの振り返り 2回、書いたけど、思ったより早く、最終版</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://wtrdr.github.io/2017/10/%E7%A7%81%E3%81%8C%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8/">
+                <h3 class="media-heading">私ができること</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">前に書いた「株式会社ワタリドリの事業内容」の通り、今の弊社の事業は「主に鳥が」エンジニアとしてお仕事してくれるから、何もやっていないようにみ</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://wtrdr.github.io/2017/10/%E3%83%96%E3%83%AD%E3%82%B0%E7%A7%BB%E8%A1%8C%E8%A8%88%E7%94%BB--%E3%81%9D%E3%81%AE1-/">
+                <h3 class="media-heading">ブログ移行計画 -その1-</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">エンジニアよりの話です。 事の発端は嫁に このブログエディタ微妙！ と言われたところから始まります。 さて、自分は何に乗せ変えようかなと思いました。</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://wtrdr.github.io/2017/10/%E6%AD%A3%E7%A4%BE%E5%93%A1%E3%82%84%E3%82%81%E3%81%A6%EF%BC%91%E5%B9%B4%E3%81%9F%E3%81%A1%E3%81%BE%E3%81%97%E3%81%9F/">
+                <h3 class="media-heading">正社員やめて１年たちました</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">2017/9/30で正社員をやめて１年たった。 辞めることを決めたのは退職の約11ヶ月前。 忙しいこともあったし、複業のできない正社員にはならな</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://wtrdr.github.io/2017/10/%E9%8B%BC%E9%89%84%E3%81%AE%E7%B4%90%E3%81%AB%E3%81%AA%E3%82%8B/">
+                <h3 class="media-heading">鋼鉄の紐になる。</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">メタファー メタファーって結構好き。 何か表現しづらいものを別のイメージしやすいものに置き換えること。だと定義している。 何が好きかというと、それ</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         44 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://scontent-nrt1-1.xx.fbcdn.net/v/t1.0-9/22814162_234859400380364_3321877450147728537_n.jpg?oh=e327f31842cdd52b91ff342cf99214e2&amp;oe=5A7919E4');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://wtrdr.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+  
+
+
+
+    
+  </body>
+</html>
+

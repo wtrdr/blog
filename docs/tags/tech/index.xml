@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tech on WATARIDORI BLOG</title>
+    <link>https://wtrdr.github.io/tags/tech/</link>
+    <description>Recent content in Tech on WATARIDORI BLOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 11 Nov 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://wtrdr.github.io/tags/tech/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RasberryPi3と戯れる -その１-</title>
+      <link>https://wtrdr.github.io/2017/11/rasberrypi3%E3%81%A8%E6%88%AF%E3%82%8C%E3%82%8B--%E3%81%9D%E3%81%AE%EF%BC%91-/</link>
+      <pubDate>Sat, 11 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://wtrdr.github.io/2017/11/rasberrypi3%E3%81%A8%E6%88%AF%E3%82%8C%E3%82%8B--%E3%81%9D%E3%81%AE%EF%BC%91-/</guid>
+      <description>アイデア11選からネタアプリに着手！ まだ全然絞り込みをかけているわけではないが、 とりあえず嫁が何やらラズパイに興味を持ったみたいなので二人で</description>
+    </item>
+    
+    <item>
+      <title>ブログ移行計画 -その2-</title>
+      <link>https://wtrdr.github.io/2017/10/%E3%83%96%E3%83%AD%E3%82%B0%E7%A7%BB%E8%A1%8C%E8%A8%88%E7%94%BB--%E3%81%9D%E3%81%AE2-/</link>
+      <pubDate>Tue, 24 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://wtrdr.github.io/2017/10/%E3%83%96%E3%83%AD%E3%82%B0%E7%A7%BB%E8%A1%8C%E8%A8%88%E7%94%BB--%E3%81%9D%E3%81%AE2-/</guid>
+      <description>まだ続くブログ移行計画！ 全然移行は進んでいないが環境は徐々に整ってきた。 TODO LIST! zsh =&amp;gt; fish [done!!] tmux install [done!!] vimrc update [done!!] hugo install weebly（このブログサイト）のzip</description>
+    </item>
+    
+    <item>
+      <title>ブログ移行計画 -その1-</title>
+      <link>https://wtrdr.github.io/2017/10/%E3%83%96%E3%83%AD%E3%82%B0%E7%A7%BB%E8%A1%8C%E8%A8%88%E7%94%BB--%E3%81%9D%E3%81%AE1-/</link>
+      <pubDate>Fri, 06 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://wtrdr.github.io/2017/10/%E3%83%96%E3%83%AD%E3%82%B0%E7%A7%BB%E8%A1%8C%E8%A8%88%E7%94%BB--%E3%81%9D%E3%81%AE1-/</guid>
+      <description>エンジニアよりの話です。 事の発端は嫁に このブログエディタ微妙！ と言われたところから始まります。 さて、自分は何に乗せ変えようかなと思いました。</description>
+    </item>
+    
+    <item>
+      <title>Google Cloud Next Tokyo 2017</title>
+      <link>https://wtrdr.github.io/2017/06/google-cloud-next-tokyo-2017/</link>
+      <pubDate>Fri, 16 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://wtrdr.github.io/2017/06/google-cloud-next-tokyo-2017/</guid>
+      <description>Google Cloudが主催しているGoogle Cloud Next Tokyoというイベントが東京で開催されたので行ってきた。結構ツメツメで一つの時間帯に4,5セッシ</description>
+    </item>
+    
+  </channel>
+</rss>
