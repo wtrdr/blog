@@ -80,7 +80,7 @@ canonifyurls = true
 
   imageGallery = true
   thumbnailImage = true
-  thumbnailImagePosition = "bottom"
+  thumbnailImagePosition = "top"
   autoThumbnailImage = true
 
   # fbAdminIds = 
@@ -88,6 +88,8 @@ canonifyurls = true
 
   # Your favicon path, default is "/favicon.png"
   # favicon = "/favicon.png"
+
+  syntaxHighlighter = "highlight.js"
 
   [params.header.rightLink]
     class = "facebook-link"
