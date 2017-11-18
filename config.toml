@@ -19,7 +19,7 @@ canonifyurls = true
   name = "wataridori inc."
   bio = "未知の体験とワクワクを。"
   # job = "Your job title"
-  location = "Tokyo, Japan"
+  # location = "Tokyo, Japan"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
   # gravatarEmail = "thibaud.lepretre@gmail.com"
   # Your profile picture
@@ -54,7 +54,7 @@ canonifyurls = true
   identifier = "about"
   name = "About"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-question\"></i>"
-  url = "/#about"
+  url = "/page/about-us"
 [[menu.links]]
   weight = 1
   identifier = "github"
@@ -90,6 +90,9 @@ canonifyurls = true
   # favicon = "/favicon.png"
 
   syntaxHighlighter = "highlight.js"
+
+  [params.sidebar.profile]
+    url = "/"
 
   [params.header.rightLink]
     class = "facebook-link"
