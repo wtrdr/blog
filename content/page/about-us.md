@@ -16,8 +16,6 @@ isCJKLanguage: true
 comments: false
 showMeta: false
 showActions: false
-thumbnailImage: /img/2017-11-11/23555431-10213552292469054-125083070-o_orig.jpg
-thumbnailImagePosition: left
 ---
 # About
 
