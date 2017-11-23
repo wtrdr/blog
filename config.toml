@@ -1,5 +1,5 @@
 publishDir = "docs"
-baseurl = "https://wtrdr.github.io/blog"
+baseurl = "https://blog.wataridori.co.jp"
 languageCode = "ja"
 defaultContentLanguage = "ja"
 title = "WATARIDORI BLOG"
