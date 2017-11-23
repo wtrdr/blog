@@ -1,4 +1,4 @@
-baseURL = "http://wataridori.co.jp/"
+baseURL = "https://wataridori.co.jp/"
 languageCode = "ja"
 title = "WATARIDORI BLOG"
 theme = "tranquilpeak"
