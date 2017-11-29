@@ -6,7 +6,7 @@ title = "WATARIDORI BLOG"
 theme = "peak"
 paginate = 10
 canonifyurls = true
-# googleAnalytics = "UA-123-45"
+googleAnalytics = "UA-98609730-1"
 
 [permalinks]
   post = "/:year/:month/:slug/"
