@@ -1,2 +1,6 @@
 # bin
-## weebly-to-hugo.rb
+
+```sh
+bundle install
+ruby weebly-to-hugo.rb
+```
