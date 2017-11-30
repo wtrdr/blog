@@ -47,7 +47,7 @@ thumbnailImagePosition: left
 > ドメイン: wataridori.co.jp
 > 
 > 平素よりさくらインターネットを御利用頂きまして
-> 誠に有難うございます。ドメイン担当の富家です。
+> 誠に有難うございます。ドメイン担当のXXXXです。
 > 
 > 本日、上記属性型・地域型ドメインの指定事業者変更申請を
 > 行いましたので、お知らせします。
@@ -125,23 +125,22 @@ github pageをカスタムドメインにするためには、
 
 すれば良さそうではある。
 
-が今回はCloudflareを設定するので1.だけやって一旦置いておく。
+が今回は[Cloudflare](https://www.cloudflare.com/)を設定するので1.だけやって一旦置いておく。
 
-### Cloudflareの設定をする
+### [Cloudflare](https://www.cloudflare.com/)の設定をする
 
 1. Cloudflareにドメインを追加する
 1. CloudflareにCNAME blog wtrdr.github.ioを追加
-   これで blog.wataridori.co.jp => Cloudflare => github.io => github page という経路ができる
+   blog.wataridori.co.jp => Cloudflare => github.io => github page
+   という経路になる
 1. Cloudflareのセキュリティ設定をしてsslを有効にする
 
 というのが大きな流れだ。
 
 ちなみに
 
-**Cloudflareとは**
-CDNサービスの一種。コンテンツキャッシュしたりして高速化したりアプリに到達する前に攻撃を抑えたりすることができるようにする。
-
-CloudflareはメインとしてSaaSの手前に置いてセキュリティ担保したり高速化したりするものみたいだ。
+**[Cloudflare](https://www.cloudflare.com/)とは**
+CDNサービスの一種。コンテンツキャッシュしたりして高速化したりアプリに到達する前に攻撃を抑えたりすることができるようにする。CloudflareはメインとしてSaaSの手前に置いてセキュリティ担保したり高速化したりするものみたいだ。
 
 #### Cloudflareのサインアップ
 [Cloudflareサインアップ](https://www.cloudflare.com/a/sign-up)
@@ -181,8 +180,8 @@ dns関連の設定はひとまずCloudflareに移ったので、ここに対し�
 
 {{< image classes="fancybox fig-100 clear center" thumbnail-width="60%" src="/img/2017-11-30/7.png" title="" >}}
 
-Full:     client --SSL-> Cloudflare --SSL--> github page
-Flexible: client --SSL-> Cloudflare -------> github page
+Full:     client -SSL-> Cloudflare -SSL-> github page
+Flexible: client -SSL-> Cloudflare --> github page
 
 ってのが違いっぽい。
 

@@ -8,8 +8,16 @@ dl, ol:not(.archive-posts), ul:not(.archive-posts) {
 .post .post-content :not(blockquote):not(.alert) > ul > li:last-child > p {
   margin: 0em 0 4em;
 }
+.post .post-content :not(blockquote):not(.alert)>p {
+  margin: 1em 0 0;
+}
 @media screen and (min-width: 1024px) {
   #cover {
     background-size: contain;
+  }
+}
+@media screen and (max-width: 767px) {
+  .post-actions-wrap ul.post-action-nav li.post-action:last-child {
+    width: 60px;
   }
 }
