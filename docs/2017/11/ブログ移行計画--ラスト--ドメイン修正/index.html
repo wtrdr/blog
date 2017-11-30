@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
-    <title>The Sense Of Purpose.</title>
+    <title>ブログ移行計画 -ラスト- ドメイン修正</title>
     <meta name="author" content="wataridori inc.">
     <meta name="keywords" content="株式会社ワタリドリ, wataridori inc., blog, wtrdr, ワタリドリ, ブログ, wataridori inc.">
 
@@ -28,21 +28,23 @@
     
 
     
-    <meta name="description" content="The Sense Of Purpose.">
-    <meta property="og:description" content="The Sense Of Purpose.">
+    <meta name="description" content="ブログ移行計画の最後です。主にドメイン修正について記載しています。">
+    <meta property="og:description" content="ブログ移行計画の最後です。主にドメイン修正について記載しています。">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="The Sense Of Purpose.">
-    <meta property="og:url" content="/2017/05/the-sense-of-purpose./">
+    <meta property="og:title" content="ブログ移行計画 -ラスト- ドメイン修正">
+    <meta property="og:url" content="/2017/11/%E3%83%96%E3%83%AD%E3%82%B0%E7%A7%BB%E8%A1%8C%E8%A8%88%E7%94%BB--%E3%83%A9%E3%82%B9%E3%83%88--%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E4%BF%AE%E6%AD%A3/">
     <meta property="og:site_name" content="WATARIDORI BLOG">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="WATARIDORI BLOG">
-    <meta name="twitter:description" content="The Sense Of Purpose.">
+    <meta name="twitter:description" content="ブログ移行計画の最後です。主にドメイン修正について記載しています。">
     
     
 
     
     
 
+    
+      <meta property="og:image" content="https://blog.wataridori.co.jp/img/2017-11-30/6.png">
     
     
     
@@ -203,19 +205,19 @@ ga('send', 'pageview');
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      The Sense Of Purpose.
+      ブログ移行計画 -ラスト- ドメイン修正
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2017-05-30T00:00:00Z">
+      <time itemprop="datePublished" datetime="2017-11-30T00:00:00Z">
         
   
   
   
   
-    2017/05/30
+    2017/11/30
   
 
       </time>
@@ -223,11 +225,11 @@ ga('send', 'pageview');
     
   <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E3%83%88%E3%83%AA%E3%83%AD%E3%82%B0/">トリログ</a>
 
-  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E5%AD%A6%E3%81%B3/">学び</a>
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E4%BC%9A%E7%A4%BE/">会社</a>
 
-  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E9%9B%91%E8%A8%98/">雑記</a>
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/tech/">Tech</a>
 
-  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E5%8B%95%E7%94%BB/">動画</a>
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E5%82%99%E5%BF%98%E9%8C%B2/">備忘録</a>
 
 
   </div>
@@ -240,46 +242,652 @@ ga('send', 'pageview');
             <div class="main-content-wrap">
               
 
+<h2 id="ドメイン修正">ドメイン修正</h2>
 
-<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
-  <iframe src="//www.youtube.com/embed/BmYv8XGl-YU" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
- </div>
+<p>さて、新しいやつは自前のドメインで運用するようにしよう。<br />
+全然使ってないけど弊社ドメインはある</p>
+
+<p><em>wataridori.co.jp</em> という立派なやつが。</p>
+
+<h3 id="お名前-com-から-さくらインターネット">「お名前.com」から「さくらインターネット」</h3>
+
+<p>今使っているのが最安のお名前メールだったのでそこまで自由度はないだろうなーと思っていたが、このメールサービスの設定からだとレコードの設定がかなり制限されてしまっていることに気づいてしまった。。。</p>
+
+<p>無念だ。でも激安だったから月額にしておいてよかった。これはさくらインターネットに移行しよう。ということで移管作業開始。</p>
+
+<h3 id="さくらのメールボックスの利用を開始する">さくらのメールボックスの利用を開始する</h3>
+
+<p>結局やりたいことってDNSレコードをいじって、メールはさくら、ブログはgithub pageに飛ばしたい。くらいなのです。とりあえず2週間無料らしいので<a href="https://www.sakura.ne.jp/mail/">さくらのメールボックス</a>を試して無理そうならレンタルサーバー借りることにしよう。</p>
+
+<h3 id="ドメイン移管依頼">ドメイン移管依頼</h3>
+
+<p>調べてみるところによると属性型JPドメイン（co.jpとか）は無料で移管可能。（そういうもんらしい）</p>
+
+<p>さくらの方から申請ををするとお名前.comの方に移管依頼が飛ぶっぽい。（<a href="https://help.sakura.ad.jp/hc/ja/articles/206052992?_ga=2.175047842.1428514606.1511015094-2024478295.1510720885&amp;_bdld=LhK7y.l+Z+SbR">参考URL</a>）<br />
+お名前.comの方には特に作業が必要なさそう。（後日メールがきて承認すれば大丈夫だった。<a href="https://help.onamae.com/app/answers/detail/a_id/8593">参考URL</a>）</p>
+
+<p>ということでお問い合わせからメッセージを送る。<br />
+少ししてさくらインターネットから以下のようなメールが届いて</p>
+
+<blockquote>
+<p>ドメイン: wataridori.co.jp</p>
+
+<p>平素よりさくらインターネットを御利用頂きまして<br />
+誠に有難うございます。ドメイン担当のXXXXです。</p>
+
+<p>本日、上記属性型・地域型ドメインの指定事業者変更申請を<br />
+行いましたので、お知らせします。</p>
+
+<p>==============================================================</p>
+
+<p>　申請番号：XXXXXXXXXXXXXXX<br />
+　現在の指定事業者：YYYYYYYYYYYYYYYYYYY</p>
+
+<p>==============================================================</p>
+</blockquote>
+
+<p>その後お名前.comから以下のようなメールが届いて</p>
+
+<blockquote>
+<p>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br />
+■ お名前.com  by GMO ■<br />
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br />
+An English version of this message is contained below.<br />
+───────────────────────────────────<br />
+■重要■トランスファー申請に関する確認のご連絡<br />
+───────────────────────────────────<br />
+XXXXXXXXXXXXXXX 様</p>
+
+<p>ドメイン名：wataridori.co.jp</p>
+
+<p>お名前.com  by GMOは、上記ドメインについて に他社<br />
+レジストラへの、トランスファー申請を承りました。</p>
+
+<p>トランスファー手続きにつきまして、期日までにお客様のご意思を確認の上、<br />
+承認・拒否どちらかのお手続きをお願いいたします。</p>
+
+<p>【対応期日】<br />
+　各種JPドメイン：本メール送信日時から168時間（7日）後まで<br />
+　JPドメイン以外：本メール送信日時から96時間（4日）後まで</p>
+
+<p>【お手続き方法】<br />
+1.下記URLへアクセスしてください。<br />
+<a href="http://url!!!!!!!!!!!!!!!!!!!!!!!!!!!">http://url!!!!!!!!!!!!!!!!!!!!!!!!!!!</a><br />
+2.ドメイン名をご確認の上、トランスファーを承認する場合は「承認する」、<br />
+　拒否する場合は「拒否する」をクリックしてください。<br />
+3.確認画面が表示されますので内容を確認し、間違いなければ「完了」をク<br />
+&hellip;&hellip;</p>
+</blockquote>
+
+<p>指定されたURLに飛んで承認して移管作業は終了。</p>
+
+<h2 id="cdn-ドメインレコード修正">CDN + ドメインレコード修正</h2>
+
+<p>調べてみると<a href="https://github.com/isaacs/github/issues/156">github pageをカスタムドメインにするとsslが使えなくなる</a>ようだ。<br />
+さらに調べてみると<a href="https://hackernoon.com/set-up-ssl-on-github-pages-with-custom-domains-for-free-a576bdf51bc">Cloudflareを使うとsslを使えるようになる</a>というのが見つかる。</p>
+
+<p>なるほど。なんとかなりそうだ。</p>
+
+<h3 id="まずはメールアドレスを有効にしよう">まずはメールアドレスを有効にしよう</h3>
+
+<p>さくらのメールボックスを使っているのでそちらの設定をしよう。</p>
+
+<p>ドメイン設定に行き<br />
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure fig-100 center" >
+  
+    <a class="fancybox" href="https://blog.wataridori.co.jp/img/2017-11-30/1.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://blog.wataridori.co.jp/img/2017-11-30/1.png" style="width: 60%;">
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+<br />
+新しいドメインを追加を押し<br />
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure fig-100 center" >
+  
+    <a class="fancybox" href="https://blog.wataridori.co.jp/img/2017-11-30/2.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://blog.wataridori.co.jp/img/2017-11-30/2.png" style="width: 60%;">
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+<br />
+ドメインを追加する<br />
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure fig-100 center" >
+  
+    <a class="fancybox" href="https://blog.wataridori.co.jp/img/2017-11-30/3.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://blog.wataridori.co.jp/img/2017-11-30/3.png" style="width: 60%;">
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+
+<p>これで移管したドメインを使ってメールの送受信ができるようになるかな。（メールアカウントを作って確認した。<a href="https://help.sakura.ad.jp/hc/ja/articles/206371101-Gmail-%E3%82%A6%E3%82%A7%E3%83%96%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6-%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B">gmailへの設定の仕方はこちら</a>）</p>
+
+<h3 id="dnsの様子を確認してみる">DNSの様子を確認してみる</h3>
+
+<p><a href="https://help.sakura.ad.jp/hc/ja/articles/206205831#ac02">ここ</a>で示されている通りにいくとネームサーバーの情報を確認できる。</p>
+
+<p>メール関連の情報が記載されているのが確認できる。<br />
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure fig-100 center" >
+  
+    <a class="fancybox" href="https://blog.wataridori.co.jp/img/2017-11-30/4.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://blog.wataridori.co.jp/img/2017-11-30/4.png" style="width: 60%;">
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+
+<p>github pageをカスタムドメインにするためには、</p>
+
+<ol>
+<li><a href="https://help.github.com/articles/adding-or-removing-a-custom-domain-for-your-github-pages-site/">repositoryの設定からCNAMEファイルを作成</a><br /></li>
+<li><a href="https://help.github.com/articles/setting-up-a-www-subdomain/"><code>blog</code>の<code>CNAME</code>レコードを作って、向き先を<code>wtrdr.github.io</code>を設定</a><br />
+<br /></li>
+</ol>
+
+<p>すれば良さそうではある。</p>
+
+<p>が今回は<a href="https://www.cloudflare.com/">Cloudflare</a>を設定するので1.だけやって一旦置いておく。</p>
+
+<h3 id="cloudflare-https-www-cloudflare-com-の設定をする"><a href="https://www.cloudflare.com/">Cloudflare</a>の設定をする</h3>
+
+<ol>
+<li>Cloudflareにドメインを追加する<br /></li>
+<li>CloudflareにCNAME blog wtrdr.github.ioを追加<br />
+blog.wataridori.co.jp =&gt; Cloudflare =&gt; github.io =&gt; github page<br />
+という経路になる<br /></li>
+<li>Cloudflareのセキュリティ設定をしてsslを有効にする<br />
+<br /></li>
+</ol>
+
+<p>というのが大きな流れだ。</p>
+
+<p>ちなみに</p>
+
+<p><strong><a href="https://www.cloudflare.com/">Cloudflare</a>とは</strong><br />
+CDNサービスの一種。コンテンツキャッシュしたりして高速化したりアプリに到達する前に攻撃を抑えたりすることができるようにする。CloudflareはメインとしてSaaSの手前に置いてセキュリティ担保したり高速化したりするものみたいだ。</p>
+
+<h4 id="cloudflareのサインアップ">Cloudflareのサインアップ</h4>
+
+<p><a href="https://www.cloudflare.com/a/sign-up">Cloudflareサインアップ</a><br />
+ここにメールアドレスとパスワード。</p>
+
+<h4 id="ドメインの設定">ドメインの設定</h4>
+
+<p>ログインした後に<a href="https://www.cloudflare.com/a/setup">Add Site</a>からドメインを追加。<br />
+今回は<code>wataridori.co.jp</code>に対するDNSの設定を行うので<code>wataridori.co.jp</code>を追加した。</p>
+
+<p>自動的にさくらインターネットのレコード設定が読み込まれている。<br />
+dns関連の設定はひとまずCloudflareに移ったので、ここに対して色々書いていく。</p>
+
+<p>最終的にこうしてみた。</p>
 
 
-<h2 id="それは今の世代の世界への向き合い方のようだった">それは今の世代の世界への向き合い方のようだった</h2>
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
 
-<p>私はいろんなものに影響を受けることが多いということを先に記載しておこう。数年前のスティーブ・ジョブズのスピーチだったり（今度これもブログに書こう）、ビジョナリーカンパニーであったり、ZeroToOneであったり、まぁいろいろだ。</p>
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
 
-<p>さて、今の世代の多くの人は何らかの「目的」を持って日々を送っている、もしくは何か「目的」が欲しいと思いつつ生活しているのだろう。私もすべからくそんな世代の一人であるように思う。だから何をやるのか決めてもいないのにいきなり会社を作り変えたり、違うと思ったら速攻辞めたりする。</p>
+<div class="figure fig-100 center" >
+  
+    <a class="fancybox" href="https://blog.wataridori.co.jp/img/2017-11-30/5.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://blog.wataridori.co.jp/img/2017-11-30/5.png" style="width: 60%;">
+  
+    </a>
+  
+  
+</div>
 
-<p>多くのものが自動化されたり機械化されていて、以前に比べてめんどくさいなと思うことはどんどん減っていき、家から出なくても本は届くし、2,3分歩けばコンビニもある。ただ生きるだけなら別になんてこともなさそうだ。だから別なところで「目的」やら「やりがい」を見つけないと生きる屍と呼ぶ以外の何者でもない。しかも仕事上はテクノロジーの最先端という訳ではないがある程度足の速い業界にいて、他の業界に比べるとfacebookやgoogleも僅かながら近いような感覚があり、世の中はすごい速さで進歩していて一人の脳じゃキャッチアップなんて到底不可能そうで、落ち着いて「目的」とか探している余裕はない人も多そうだ。</p>
+  <div style="clear:both;"></div>
 
-<p>そんな中で拠り所を探している人のために「目的感」を作らなくちゃいけない。と言っている。「目的感」という日本語が難しいが&rdquo;Sense Of Purpose&rdquo;という英語である。「目的」それ自体ではなく、「目的感」。それは自分以上の大きな存在の一部だと感じることができて、自分が必要とされていて、輝かしい未来のために日々努力を続けられる。大いなる「目的」の中にいる「感じ」を作り出すことという理解をした。自分の中では「大志」とか「大義」とかの表現に似ている。</p>
 
-<p>最近読んだビジョナリーカンパニーにも似たような記載があった。確かそれは「情熱」と表現されていた。企業の中の全員が「情熱」を持ち取り組める事業に絞るという文脈があった。その中に属すれば（もちろん全員が適格者であるという訳ではないが）、中の人は圧倒的なパワーと個人での適格な集中と選択を行えるという話だった。</p>
+<p>上から</p>
 
-<p>自分だけではない、他の人が「人生の目標」も持てるようにしていかなくてはいけないのかもしれない。ここ最近だと身の回りでは良くWill（意思）という表現を耳にする。しかし、自分自身は現時点であまり強いWillを持っていない。だから少しずつ始めようと決めて嫁に手伝ってもらっている。</p>
+<ul>
+<li>Aレコードでsakuraが指定していたipをそのまま指定<br />
+wataridori.co.jpはsakuraに向く。<br /></li>
+<li>CNAMEレコードでblogはgithub pageに設定<br />
+blog.wataridori.co.jpはgithub pageに向く。<br />
+オレンジ雲に設定するとCDN経由でコンテンツを配信する。<br />
+これでsslと高速化が実現できる<br /></li>
+<li>MXレコードで@を指定<br />
+メール送受信はsakuraのサーバーに向く。<br /></li>
+<li>TXTはsakuraによって指定されていたspfが入ってる<br />
+<br /></li>
+</ul>
 
-<h2 id="the-greatest-successes-come-from-having-the-freedom-to-fail">The Greatest Successes come from having the freedom to fail.</h2>
+<p>こんなところか。</p>
 
-<p>多くのスタートアップが失敗する。10年以上続く会社は5%にも満たない。そんな話は良く聞く。<br />
-ではそこで諦めるのか。チャレンジして失敗したら二度と社会復帰ができないのか。確率的には失敗するからやらないのか。失敗したら経済的な余裕がなくなる人もいるだろう。それはとても残念でならない。私は色々やってきたけど幸福にも今はまだ無事に生かしてもらっている。いろんな人によって。</p>
+<p>あとはFree Websiteを選んで次に出てくるネームサーバの情報をさくらインターネットのWhois設定から書き換えてco.jpからの解決がCloudflareに向くようにする。</p>
 
-<p>成功する確率が5%なら20回くらい挑戦すれば成功する、多分、きっと、そう信じている。自分ではトライする回数しかおそらく制御ができないから。マークザッカーバーグだってfacebookは一番最初のプロダクトではないと言っている、JKローリングだってハリーポッターを出版するまでに12回もリジェクトされている、ビヨンセだって&rdquo;Halo&rdquo;の前には100個以上曲を作っている。</p>
+<h4 id="セキュリティ設定">セキュリティ設定</h4>
 
-<p>「失敗する自由」が大きな成功を生み出す。そんな自由がまだ許されているし、他の人に比べたらとても恵まれた状況にもいるなーと改めて感じた。</p>
+<p>ダッシュボードの<strong>Crypto</strong>を選択し先に進むとSSLってのがある。<br />
+ここFullでもやり方があるらしいが一旦Flexibleにしておく。</p>
 
-<h2 id="ローカルコミュニティ">ローカルコミュニティ</h2>
 
-<p>「目的を一緒に目指してくれる人」がいて、「目的を作る人」がいて、何か大きなものが出来上がっていく。なんか良さそうな未来ではある。</p>
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
 
-<p>自分の生きているコミュニティで良い実感がない限りは、他のコミュニティを考える余裕はない。自分が一人じゃないことが分かれば強くなることができて、自分の可能性を広げることができる。始まりは小さな変化だが、コミュニティを作り、ありとあらゆる人と繋がって目的を感じれられる世の中を創ることが、大きな課題をクリアしていく力になるだろう。とマークザッカーバーグは言っている。</p>
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
 
-<p>嫁は私とは違って地域創生とかローカルコミュニティに参加するのが好きらしい。私をいろんな人と会わせてくれて様々な話を聞かせてもらう。私は気質なのかあまり外に出ようとしない。本読んだり、家でモノ作っていた方がなんか楽だからだ。だが、こうやっていろんな所に連れ出されるようになるとまた何か違った変化があるのだろう。と願う。</p>
+<div class="figure fig-100 center" >
+  
+    <a class="fancybox" href="https://blog.wataridori.co.jp/img/2017-11-30/7.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://blog.wataridori.co.jp/img/2017-11-30/7.png" style="width: 60%;">
+  
+    </a>
+  
+  
+</div>
 
-<p>人と繋がることは私にはきっと怖いことなのだろう。だから信頼のある筋（だれかから繋げてもらったり）したところじゃないとあんまり上手く交流できない。まぁ私はそんな人間であるという理解はしているが、なんかもやっとするところもある、、、と思うということはきっともっと上手く繋がりたい。と思っているのだろうな。</p>
+  <div style="clear:both;"></div>
 
-<p>なので、このスピーチは私にとっては勇気の話。</p>
+
+<p>Full:     client -SSL-&gt; Cloudflare -SSL-&gt; github page<br />
+Flexible: client -SSL-&gt; Cloudflare &ndash;&gt; github page</p>
+
+<p>ってのが違いっぽい。</p>
+
+<hr />
+
+<p>Always Use HTTPSをonにする<br />
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure fig-100 center" >
+  
+    <a class="fancybox" href="https://blog.wataridori.co.jp/img/2017-11-30/8.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://blog.wataridori.co.jp/img/2017-11-30/8.png" style="width: 60%;">
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+
+<hr />
+
+<p>HTTP Strict Transport Security (HSTS)の箇所をEnable HSTSをクリックして<br />
+[I understand] =&gt; [Next]と先に進んで以下のように設定して[Save]</p>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure fig-100 center" >
+  
+    <a class="fancybox" href="https://blog.wataridori.co.jp/img/2017-11-30/9.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://blog.wataridori.co.jp/img/2017-11-30/9.png" style="width: 60%;">
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+<hr />
+
+<p>さてこれでセキュリティ周りの設定は完了か。</p>
+
+<h4 id="確認">確認</h4>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure fig-100 center" >
+  
+    <a class="fancybox" href="https://blog.wataridori.co.jp/img/2017-11-30/6.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://blog.wataridori.co.jp/img/2017-11-30/6.png" style="width: 100%;">
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+<p><strong>良さげだ！</strong></p>
 
               
             </div>
@@ -293,11 +901,11 @@ ga('send', 'pageview');
                     
   <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E3%83%88%E3%83%AA%E3%83%AD%E3%82%B0/">トリログ</a>
 
-  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E5%AD%A6%E3%81%B3/">学び</a>
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E4%BC%9A%E7%A4%BE/">会社</a>
 
-  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E9%9B%91%E8%A8%98/">雑記</a>
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/tech/">Tech</a>
 
-  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E5%8B%95%E7%94%BB/">動画</a>
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E5%82%99%E5%BF%98%E9%8C%B2/">備忘録</a>
 
 
                   </div>
@@ -311,7 +919,7 @@ ga('send', 'pageview');
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.wataridori.co.jp/2017/06/%E6%97%A7%E4%BC%9A%E7%A4%BE%E3%81%8B%E3%82%89%E6%96%B0%E4%BC%9A%E7%A4%BE%E3%81%B8%E3%81%AE%E7%99%BB%E8%A8%98%E5%A4%89%E6%9B%B4-%E6%96%B0%E8%A6%8F%E6%A0%AA%E5%BC%8F%E7%99%BA%E8%A1%8C/" data-tooltip="旧会社から新会社への登記変更-新規株式発行">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">次の投稿</span>
@@ -319,7 +927,7 @@ ga('send', 'pageview');
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.wataridori.co.jp/2017/05/%E5%B9%B8%E3%81%9B%E3%81%AE%E5%AE%9A%E7%BE%A9201705/" data-tooltip="幸せの定義201705">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.wataridori.co.jp/2017/11/%E3%83%96%E3%83%AD%E3%82%B0%E7%A7%BB%E8%A1%8C%E8%A8%88%E7%94%BB--%E3%81%9D%E3%81%AE3--%E7%A7%BB%E8%A1%8C%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/" data-tooltip="ブログ移行計画 -その3- 移行スクリプト">
               
                   <span class="hide-xs hide-sm text-small icon-mr">前の投稿</span>
                   <i class="fa fa-angle-right"></i>
@@ -337,13 +945,13 @@ ga('send', 'pageview');
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.wataridori.co.jp/2017/05/the-sense-of-purpose./">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.wataridori.co.jp/2017/11/%E3%83%96%E3%83%AD%E3%82%B0%E7%A7%BB%E8%A1%8C%E8%A8%88%E7%94%BB--%E3%83%A9%E3%82%B9%E3%83%88--%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E4%BF%AE%E6%AD%A3/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.wataridori.co.jp/2017/05/the-sense-of-purpose./">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.wataridori.co.jp/2017/11/%E3%83%96%E3%83%AD%E3%82%B0%E7%A7%BB%E8%A1%8C%E8%A8%88%E7%94%BB--%E3%83%A9%E3%82%B9%E3%83%88--%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E4%BF%AE%E6%AD%A3/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -374,7 +982,7 @@ ga('send', 'pageview');
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.wataridori.co.jp/2017/06/%E6%97%A7%E4%BC%9A%E7%A4%BE%E3%81%8B%E3%82%89%E6%96%B0%E4%BC%9A%E7%A4%BE%E3%81%B8%E3%81%AE%E7%99%BB%E8%A8%98%E5%A4%89%E6%9B%B4-%E6%96%B0%E8%A6%8F%E6%A0%AA%E5%BC%8F%E7%99%BA%E8%A1%8C/" data-tooltip="旧会社から新会社への登記変更-新規株式発行">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">次の投稿</span>
@@ -382,7 +990,7 @@ ga('send', 'pageview');
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.wataridori.co.jp/2017/05/%E5%B9%B8%E3%81%9B%E3%81%AE%E5%AE%9A%E7%BE%A9201705/" data-tooltip="幸せの定義201705">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.wataridori.co.jp/2017/11/%E3%83%96%E3%83%AD%E3%82%B0%E7%A7%BB%E8%A1%8C%E8%A8%88%E7%94%BB--%E3%81%9D%E3%81%AE3--%E7%A7%BB%E8%A1%8C%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/" data-tooltip="ブログ移行計画 -その3- 移行スクリプト">
               
                   <span class="hide-xs hide-sm text-small icon-mr">前の投稿</span>
                   <i class="fa fa-angle-right"></i>
@@ -400,13 +1008,13 @@ ga('send', 'pageview');
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.wataridori.co.jp/2017/05/the-sense-of-purpose./">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.wataridori.co.jp/2017/11/%E3%83%96%E3%83%AD%E3%82%B0%E7%A7%BB%E8%A1%8C%E8%A8%88%E7%94%BB--%E3%83%A9%E3%82%B9%E3%83%88--%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E4%BF%AE%E6%AD%A3/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.wataridori.co.jp/2017/05/the-sense-of-purpose./">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.wataridori.co.jp/2017/11/%E3%83%96%E3%83%AD%E3%82%B0%E7%A7%BB%E8%A1%8C%E8%A8%88%E7%94%BB--%E3%83%A9%E3%82%B9%E3%83%88--%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E4%BF%AE%E6%AD%A3/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -423,13 +1031,13 @@ ga('send', 'pageview');
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.wataridori.co.jp%2F2017%2F05%2Fthe-sense-of-purpose.%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.wataridori.co.jp%2F2017%2F11%2F%25E3%2583%2596%25E3%2583%25AD%25E3%2582%25B0%25E7%25A7%25BB%25E8%25A1%258C%25E8%25A8%2588%25E7%2594%25BB--%25E3%2583%25A9%25E3%2582%25B9%25E3%2583%2588--%25E3%2583%2589%25E3%2583%25A1%25E3%2582%25A4%25E3%2583%25B3%25E4%25BF%25AE%25E6%25AD%25A3%2F">
           <i class="fa fa-facebook-official"></i><span>Facebookで共有</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.wataridori.co.jp%2F2017%2F05%2Fthe-sense-of-purpose.%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.wataridori.co.jp%2F2017%2F11%2F%25E3%2583%2596%25E3%2583%25AD%25E3%2582%25B0%25E7%25A7%25BB%25E8%25A1%258C%25E8%25A8%2588%25E7%2594%25BB--%25E3%2583%25A9%25E3%2582%25B9%25E3%2583%2588--%25E3%2583%2589%25E3%2583%25A1%25E3%2582%25A4%25E3%2583%25B3%25E4%25BF%25AE%25E6%25AD%25A3%2F">
           <i class="fa fa-twitter"></i><span>Twitterで共有</span>
         </a>
       </li>

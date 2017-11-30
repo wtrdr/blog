@@ -1,5 +1,5 @@
 ---
-title: ブログ移行計画 -その4- ドメイン修正
+title: ブログ移行計画 -ラスト- ドメイン修正
 date: 2017-11-30
 draft: false
 tags:
@@ -7,7 +7,7 @@ tags:
 - 会社
 - Tech
 - 備忘録
-description: ドメイン修正
+description: ブログ移行計画の最後です。主にドメイン修正について記載しています。
 keywords:
 - 株式会社ワタリドリ
 - wataridori inc.
