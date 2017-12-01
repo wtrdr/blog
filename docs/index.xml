@@ -6,10 +6,19 @@
     <description>Recent content on WATARIDORI BLOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 30 Nov 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 Dec 2017 21:31:50 +0900</lastBuildDate>
     
 	<atom:link href="https://blog.wataridori.co.jp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>OS自作入門 -Advent01-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80--advent01-/</link>
+      <pubDate>Fri, 01 Dec 2017 21:31:50 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80--advent01-/</guid>
+      <description>アドベントカレンダー始まった フィリピン旅行記も書かなきゃいけないのだけど季節はアドベントカレンダーな季節です。 なのでワタリドリもアドベントカ</description>
+    </item>
     
     <item>
       <title>ブログ移行計画 -ラスト- ドメイン修正</title>
