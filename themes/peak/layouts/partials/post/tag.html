@@ -1,0 +1,3 @@
+{{ range .Params.tags }}
+  <a class="link-unstyled" href="{{ $.Site.LanguagePrefix }}/tags/{{ . | urlize }}/">{{ . }}</a>
+{{ end }}
