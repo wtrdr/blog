@@ -174,6 +174,7 @@ deploy:
     - lukevivier/gh-pages@0.2.1:
         token: $GIT_TOKEN
         domain: blog.wataridori.co.jp
+        basedir: docs
 ```
 
 werckerに新しいpipelineを作成して
