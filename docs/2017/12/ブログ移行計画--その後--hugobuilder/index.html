@@ -19,7 +19,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.30 with theme Tranquilpeak 0.4.3-BETA">
+    <meta name="generator" content="Hugo 0.31.1 with theme Tranquilpeak 0.4.3-BETA">
     <title>ブログ移行計画 -その後- HugoBuilder</title>
     <meta name="author" content="wataridori inc.">
     <meta name="keywords" content="株式会社ワタリドリ, wataridori inc., blog, wtrdr, ワタリドリ, ブログ, wataridori inc.">
@@ -30,7 +30,7 @@
     
     <meta name="description" content="ブログ移行した後に出てきた問題に対処します。">
     <meta property="og:description" content="ブログ移行した後に出てきた問題に対処します。">
-    <meta property="og:type" content="company">
+    <meta property="og:type" content="blog">
     <meta property="og:title" content="ブログ移行計画 -その後- HugoBuilder">
     <meta property="og:url" content="/2017/12/%E3%83%96%E3%83%AD%E3%82%B0%E7%A7%BB%E8%A1%8C%E8%A8%88%E7%94%BB--%E3%81%9D%E3%81%AE%E5%BE%8C--hugobuilder/">
     <meta property="og:site_name" content="WATARIDORI BLOG">
@@ -221,20 +221,9 @@ ga('send', 'pageview');
       </time>
     
     
-  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E3%83%88%E3%83%AA%E3%83%AD%E3%82%B0/">トリログ</a>
-
-  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/tech/">Tech</a>
-
-  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E5%82%99%E5%BF%98%E9%8C%B2/">備忘録</a>
-
-  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E6%8C%91%E6%88%A6/">挑戦</a>
-
-
   </div>
 
-
 </div>
-
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
@@ -402,6 +391,8 @@ isCJKLanguage: true
 build:
   steps:
     - arjen/hugo-build:
+        version: &quot;0.31.1&quot;
+        theme: &quot;peak&quot;
 </code></pre>
 
 <p>この状態で</p>
@@ -411,6 +402,15 @@ git commit -m &quot;Add: wercker.yml&quot;
 git push origin master
 </code></pre>
 
+<p>なんか失敗する。themeが人のやつを拡張してsubmoduleで追加しているからwerckerが取得できてないっぽい。ということでsubmoduleからsubtreeに修正するか。（<a href="https://qiita.com/horimislime/items/577b6de47f2e897b4e2a">ref: Qiita</a>）</p>
+
+<pre><code>rm -rf themes/peak
+git remote add peak https://github.com/wtrdr/hugo-tranquilpeak-theme
+git subtree add --prefix=themes/peak peak master --squash
+</code></pre>
+
+<p>これで大丈夫かな。</p>
+
               
             </div>
           </div>
@@ -419,23 +419,23 @@ git push origin master
               
                 
                 
-                  <div class="post-meta">
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">タグ</span><br/>
                     
-  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E3%83%88%E3%83%AA%E3%83%AD%E3%82%B0/">トリログ</a>
+  <a class="tag tag--primary tag--small" href="https://blog.wataridori.co.jp/tags/%E3%83%88%E3%83%AA%E3%83%AD%E3%82%B0/">トリログ</a>
 
-  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/tech/">Tech</a>
+  <a class="tag tag--primary tag--small" href="https://blog.wataridori.co.jp/tags/tech/">Tech</a>
 
-  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E5%82%99%E5%BF%98%E9%8C%B2/">備忘録</a>
+  <a class="tag tag--primary tag--small" href="https://blog.wataridori.co.jp/tags/%E5%82%99%E5%BF%98%E9%8C%B2/">備忘録</a>
 
-  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E6%8C%91%E6%88%A6/">挑戦</a>
-
+  <a class="tag tag--primary tag--small" href="https://blog.wataridori.co.jp/tags/%E6%8C%91%E6%88%A6/">挑戦</a>
 
                   </div>
                 
               
             
-            <div class="post-actions-wrap">
-  
+            
+  <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -444,14 +444,14 @@ git push origin master
                 <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">次の投稿</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">次</span>
                 </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80--advent01-/" data-tooltip="OS自作入門 -Advent01-">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">前の投稿</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">前</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -480,9 +480,16 @@ git push origin master
         
       
       
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
     </ul>
-  
-</div>
+  </div>
+
 
             
               
@@ -497,8 +504,8 @@ git push origin master
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
-        <div class="post-actions-wrap">
-  
+        
+  <div class="post-actions-wrap">
       <nav >
         <ul class="post-actions post-action-nav">
           
@@ -507,14 +514,14 @@ git push origin master
                 <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">次の投稿</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">次</span>
                 </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80--advent01-/" data-tooltip="OS自作入門 -Advent01-">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">前の投稿</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">前</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -543,9 +550,16 @@ git push origin master
         
       
       
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
     </ul>
-  
-</div>
+  </div>
+
 
       </div>
       <div id="share-options-bar" class="share-options-bar" data-behavior="4">
