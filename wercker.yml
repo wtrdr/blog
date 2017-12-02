@@ -3,3 +3,4 @@ build:
   steps:
     - arjen/hugo-build:
         version: "0.31.1"
+        theme: "wtrdr/hugo-tranquilpeak-theme"
