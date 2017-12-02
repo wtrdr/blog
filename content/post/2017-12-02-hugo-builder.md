@@ -1,7 +1,7 @@
 ---
 title: "ブログ移行計画 -その後- HugoBuilder"
-date: 2017-12-03T15:46:15+09:00
-draft: true
+date: 2017-12-02
+draft: false
 tags:
 - トリログ
 - Tech
@@ -158,7 +158,6 @@ git subtree add --prefix=themes/peak peak wtrdr-custom --squash
 これまではbuildの話。これからはdeployの話。
 wercker.ymlに設定を追加してdeployもお願いするとしよう。
 
-
 wercker.ymlはこんな感じになる。
 
 ```
@@ -175,10 +174,23 @@ deploy:
     - lukevivier/gh-pages@0.2.1:
         token: $GIT_TOKEN
         domain: blog.wataridori.co.jp
-        basedir: docs
 ```
 
-よし`git push`だ！
+werckerに新しいpipelineを作成して
+
+{{< image classes="fancybox fig-70" src="/img/2017-12-02/4.png" >}}
+
+上のwercker.ymlの`$GIT_TOKE`に必要なgithubのaccess tokenを作成して貼り付ける。
+
+{{< image classes="fancybox fig-70" src="/img/2017-12-02/5.png" >}}
+
+{{< image classes="fancybox fig-70" src="/img/2017-12-02/6.png" >}}
+
+workflowにpipelineを追加して
+
+{{< image classes="fancybox fig-70" src="/img/2017-12-02/7.png" >}}
+
+これで大丈夫かな。よし`git push`だ！
 
 ・・・・・
 ・・・・・・・・・・・
@@ -186,24 +198,8 @@ deploy:
 
 pipelineが無限ループした。。。。何やら`gh-pages`のstepはgh-pagesというbranchに対してpushをするらしいな。それがさらにgithub hookを呼び出しdeployプロセスが再度回って、またgh-pagesにpushして・・・みたいな。
 
-branchの設定がstepにできるみたいなので
+pipelineにはmasterブランチのpush hookしか受けないように設定しておくか。
 
+{{< image classes="fancybox fig-70" src="/img/2017-12-02/8.png" >}}
 
-```
-box: golang:latest
-build:
-  steps:
-    - arjen/hugo-build:
-        version: "0.31.1"
-        theme: "peak"
-deploy:
-  steps:
-    - install-packages:
-        packages: git ssh-client
-    - lukevivier/gh-pages@0.2.4:
-        token: $GIT_TOKEN
-        domain: blog.wataridori.co.jp
-        basedir: docs
-        branch: master <= これ追加
-```
-
+これで大丈夫だと思われる。
