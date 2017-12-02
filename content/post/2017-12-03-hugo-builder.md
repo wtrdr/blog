@@ -168,14 +168,14 @@ build:
     - arjen/hugo-build:
         version: "0.31.1"
         theme: "peak"
-  deploy:
-    steps:
-      - install-packages:
-          packages: git ssh-client
-      - lukevivier/gh-pages@0.2.1:
-          token: $GIT_TOKEN
-          domain: blog.wataridori.co.jp
-          basedir: docs
+deploy:
+  steps:
+    - install-packages:
+        packages: git ssh-client
+    - lukevivier/gh-pages@0.2.1:
+        token: $GIT_TOKEN
+        domain: blog.wataridori.co.jp
+        basedir: docs
 ```
 
 deployターゲットを指定する。
