@@ -19,7 +19,7 @@ thumbnailImagePosition: left
 ---
 ## ブログの仕組み
 
-嫁の[久しぶりのブログ、新しいブロブ]({{< relref "post/2017-12-02.md" >}})で書かれていたので少しだけ解説を付け足しておこう。このブログがどうやって動いているのか。
+嫁の[久しぶりのブログ、新しいブログ]({{< relref "post/2017-12-02.md" >}})で書かれていたので少しだけ解説を付け足しておこう。このブログがどうやって動いているのか。
 
 必要なものは下記の通り
 
@@ -219,7 +219,7 @@ pipelineにはgh-pagesブランチのpush hookを受け付けないように設�
 
 [Github wtrdr/blog/gh-pages](https://github.com/wtrdr/blog/tree/gh-pages)
 
-なのでGithub Pageがこのブランチをrootディレクトリとして扱ってくれないと困る。設定を修正しておこう。Githubのページから [Settings] => [Github Pages] => [Srouce]にてgh-pages branchを使う。に設定。
+なのでGithub Pageがこのブランチをrootディレクトリとして扱ってくれないと困る。設定を修正しておこう。Githubのページから [Settings] => [Github Pages] => [Source]にてgh-pages branchを使う。に設定。
 
 {{< image classes="fancybox fig-100 clear center" thumbnail-width="60%" src="/img/2017-12-02/9.png" >}}
 
