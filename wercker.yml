@@ -12,3 +12,4 @@ deploy:
         token: $GIT_TOKEN
         domain: hugo-wercker.ig.nore.me
         basedir: public
+        branch: master

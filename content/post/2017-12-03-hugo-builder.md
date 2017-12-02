@@ -178,6 +178,32 @@ deploy:
         basedir: docs
 ```
 
-deployターゲットを指定する。
+よし`git push`だ！
 
+・・・・・
+・・・・・・・・・・・
+・・・・・・・・・・・・・・・・・
+
+pipelineが無限ループした。。。。何やら`gh-pages`のstepはgh-pagesというbranchに対してpushをするらしいな。それがさらにgithub hookを呼び出しdeployプロセスが再度回って、またgh-pagesにpushして・・・みたいな。
+
+branchの設定がstepにできるみたいなので
+
+
+```
+box: golang:latest
+build:
+  steps:
+    - arjen/hugo-build:
+        version: "0.31.1"
+        theme: "peak"
+deploy:
+  steps:
+    - install-packages:
+        packages: git ssh-client
+    - lukevivier/gh-pages@0.2.1:
+        token: $GIT_TOKEN
+        domain: blog.wataridori.co.jp
+        basedir: docs
+        branch: master <= これ追加
+```
 
