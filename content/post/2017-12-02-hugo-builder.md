@@ -215,7 +215,7 @@ pipelineにはmasterブランチのpush hookしか受けないように設定し
 
 さて、build deployまで自動化された。この結果ブランチはgh-pagesというbranchにpushされることになる。
 
-[Githu wtrdr/blog/gh-pages](https://github.com/wtrdr/blog/tree/gh-pages)
+[Github wtrdr/blog/gh-pages](https://github.com/wtrdr/blog/tree/gh-pages)
 
 なのでGithub Pageがこのディレクトリをtopディレクトリとして扱ってくれないと困る。設定を修正しておこう。Githubのページから [Settings] => [Github Pages] => [Srouce]にてgh-pages branchを使う。に設定。
 
