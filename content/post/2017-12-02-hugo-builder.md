@@ -135,7 +135,7 @@ git commit -m "Add: wercker.yml"
 git push origin master
 ```
 
-なんか失敗する。themeが人のやつを拡張してsubmoduleで追加しているからwerckerが取得できてないっぽい。ということでsubmoduleからsubtreeに修正するか。
+なんか失敗する。themeが人のやつを拡張してsubmoduleで追加しているからwerckerが取得できてないっぽい。ということでsubmoduleからsubtreeに修正するか。（[ref: Qiita](https://qiita.com/horimislime/items/577b6de47f2e897b4e2a)）
 
 ```
 rm -rf themes/peak
