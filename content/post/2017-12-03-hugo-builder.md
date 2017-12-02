@@ -1,7 +1,7 @@
 ---
 title: "ブログ移行計画 -その後- HugoBuilder"
-date: 2017-12-02T15:46:15+09:00
-draft: false
+date: 2017-12-03T15:46:15+09:00
+draft: true
 tags:
 - トリログ
 - Tech
@@ -97,6 +97,7 @@ isCJKLanguage: true
 
 これまたエンジニアっぽい話なのだが上記Hugoでhtmlを生成するのだが今はシステムを組んでいないので自分も嫁も自分のPC上でビルドしないといけない。
 一人で作業するならいいんだが二人で作業すると生成物がバッティングして衝突する。
+
 毎回気にするのもめんどくさいのでbuildとdeployのシステムをいれることにした。
 
 ### [Deployment with Wercker](https://gohugo.io/hosting-and-deployment/deployment-with-wercker/)
@@ -110,11 +111,11 @@ wercker.ymlという設定ファイルが必要なのでそれを作る。この
 
 MarketplaceからHugo Buildで検索して
 
-{{< image classes="fancybox fig-70" src="/img/2017-12-02/2.png" >}}
+{{< image classes="fancybox fig-70" src="/img/2017-12-02/1.png" >}}
 
 `arjen`さんのやつを選択してStepの内容をコピー
 
-{{< image classes="fancybox fig-70" src="/img/2017-12-02/3.png" >}}
+{{< image classes="fancybox fig-70" src="/img/2017-12-02/2.png" >}}
 
 wercker.ymlは多分こんな感じになるんだろう。
 
@@ -135,12 +136,48 @@ git commit -m "Add: wercker.yml"
 git push origin master
 ```
 
-なんか失敗する。themeが人のやつを拡張してsubmoduleで追加しているからwerckerが取得できてないっぽい。ということでsubmoduleからsubtreeに修正するか。（[ref: Qiita](https://qiita.com/horimislime/items/577b6de47f2e897b4e2a)）
+なんか失敗する・・・。
+
+
+themeが人のやつを拡張してsubmoduleで追加しているからwerckerが取得できてないっぽい。ということでsubmoduleからsubtreeに修正するか。（[ref: Qiita](https://qiita.com/horimislime/items/577b6de47f2e897b4e2a)）
 
 ```
 rm -rf themes/peak
 git remote add peak https://github.com/wtrdr/hugo-tranquilpeak-theme
-git subtree add --prefix=themes/peak peak master --squash
+git subtree add --prefix=themes/peak peak wtrdr-custom --squash
 ```
 
 これで大丈夫かな。
+
+{{< image classes="fancybox fig-70" src="/img/2017-12-02/3.png" >}}
+
+**オッケーだ！**
+
+引き続きマニュアルにある通り先に進める。
+
+これまではbuildの話。これからはdeployの話。
+wercker.ymlに設定を追加してdeployもお願いするとしよう。
+
+
+wercker.ymlはこんな感じになる。
+
+```
+box: golang:latest
+build:
+  steps:
+    - arjen/hugo-build:
+        version: "0.31.1"
+        theme: "peak"
+  deploy:
+    steps:
+      - install-packages:
+          packages: git ssh-client
+      - lukevivier/gh-pages@0.2.1:
+          token: $GIT_TOKEN
+          domain: blog.wataridori.co.jp
+          basedir: docs
+```
+
+deployターゲットを指定する。
+
+
