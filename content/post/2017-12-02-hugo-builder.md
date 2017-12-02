@@ -207,7 +207,7 @@ workflowにpipelineを追加して
 
 pipelineが無限ループした。。。。何やら`gh-pages`のstepはgh-pagesというbranchに対してpushをするらしいな。それがさらにgithub hookを呼び出しdeployプロセスが再度回って、またgh-pagesにpushして・・・みたいな。
 
-pipelineにはmasterブランチのpush hookしか受けないように設定しておくか。
+pipelineにはgh-pagesブランチのpush hookを受け付けないように設定しておくか。
 
 {{< image classes="fancybox fig-100 clear center" thumbnail-width="60%" src="/img/2017-12-02/8.png" >}}
 
