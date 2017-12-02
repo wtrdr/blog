@@ -215,11 +215,11 @@ pipelineにはgh-pagesブランチのpush hookを受け付けないように設�
 
 -----------------
 
-さて、build deployまで自動化された。この結果ブランチはgh-pagesというbranchにpushされることになる。
+さて、build deployまで自動化された。このビルド結果はgh-pagesというbranchにpushされることになる。
 
 [Github wtrdr/blog/gh-pages](https://github.com/wtrdr/blog/tree/gh-pages)
 
-なのでGithub Pageがこのディレクトリをtopディレクトリとして扱ってくれないと困る。設定を修正しておこう。Githubのページから [Settings] => [Github Pages] => [Srouce]にてgh-pages branchを使う。に設定。
+なのでGithub Pageがこのブランチをrootディレクトリとして扱ってくれないと困る。設定を修正しておこう。Githubのページから [Settings] => [Github Pages] => [Srouce]にてgh-pages branchを使う。に設定。
 
 {{< image classes="fancybox fig-100 clear center" thumbnail-width="60%" src="/img/2017-12-02/9.png" >}}
 
