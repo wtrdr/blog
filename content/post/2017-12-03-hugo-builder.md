@@ -200,7 +200,7 @@ deploy:
   steps:
     - install-packages:
         packages: git ssh-client
-    - lukevivier/gh-pages@0.2.1:
+    - lukevivier/gh-pages@0.2.4:
         token: $GIT_TOKEN
         domain: blog.wataridori.co.jp
         basedir: docs
