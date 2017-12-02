@@ -189,7 +189,7 @@ werckerに新しいpipelineを作成して
 
 {{< image classes="fancybox fig-100 clear center" thumbnail-width="60%" src="/img/2017-12-02/4.png" >}}
 
-上のwercker.ymlの`$GIT_TOKE`に必要なgithubのaccess tokenを作成して貼り付ける。
+上のwercker.ymlの`$GIT_TOKEN`に必要なgithubのaccess tokenを作成して貼り付ける。
 
 {{< image classes="fancybox fig-100 clear center" thumbnail-width="60%" src="/img/2017-12-02/5.png" >}}
 
