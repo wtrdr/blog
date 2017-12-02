@@ -123,6 +123,8 @@ box: golang:latest
 build:
   steps:
     - arjen/hugo-build:
+        version: "0.31.1"
+        theme: "peak"
 ```
 
 この状態で
@@ -132,3 +134,13 @@ git add wercker.yml
 git commit -m "Add: wercker.yml"
 git push origin master
 ```
+
+なんか失敗する。themeが人のやつを拡張してsubmoduleで追加しているからwerckerが取得できてないっぽい。ということでsubmoduleからsubtreeに修正するか。
+
+```
+rm -rf themes/peak
+git remote add peak https://github.com/wtrdr/hugo-tranquilpeak-theme
+git subtree add --prefix=themes/peak peak master --squash
+```
+
+これで大丈夫かな。
