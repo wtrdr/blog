@@ -14,6 +14,8 @@ keywords:
 - blog
 - wtrdr
 isCJKLanguage: true
+thumbnailImage: /img/2017-12-02/3.png
+thumbnailImagePosition: left
 ---
 ## ブログの仕組み
 
