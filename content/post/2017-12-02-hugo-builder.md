@@ -93,12 +93,16 @@ isCJKLanguage: true
 ### Cloudflare
 これは[ブログ移行計画 -ラスト- ドメイン修正]({{< relref "post/2017-11-30-domain-transfer.md" >}})に書いてあるので参考に。
 
+----------
+
 ## 浮上した新たな問題
 
 これまたエンジニアっぽい話なのだが上記Hugoでhtmlを生成するのだが今はシステムを組んでいないので自分も嫁も自分のPC上でビルドしないといけない。
 一人で作業するならいいんだが二人で作業すると生成物がバッティングして衝突する。
 
 毎回気にするのもめんどくさいのでbuildとdeployのシステムをいれることにした。
+
+----------
 
 ### [Deployment with Wercker](https://gohugo.io/hosting-and-deployment/deployment-with-wercker/)
 Hugoの公式にdeployシステムの導入について記載があった。ちょうど今参画しているプロジェクトの方でもWercker使っているし一つやってみるか。ということでやってみる。
@@ -111,11 +115,11 @@ wercker.ymlという設定ファイルが必要なのでそれを作る。この
 
 MarketplaceからHugo Buildで検索して
 
-{{< image classes="fancybox fig-70" src="/img/2017-12-02/1.png" >}}
+{{< image classes="fancybox fig-100 clear center" thumbnail-width="60%" src="/img/2017-12-02/1.png" >}}
 
 `arjen`さんのやつを選択してStepの内容をコピー
 
-{{< image classes="fancybox fig-70" src="/img/2017-12-02/2.png" >}}
+{{< image classes="fancybox fig-100 clear center" thumbnail-width="60%" src="/img/2017-12-02/2.png" >}}
 
 wercker.ymlは多分こんな感じになるんだろう。
 
@@ -149,16 +153,18 @@ git subtree add --prefix=themes/peak peak wtrdr-custom --squash
 
 これで大丈夫かな。
 
-{{< image classes="fancybox fig-70" src="/img/2017-12-02/3.png" >}}
+{{< image classes="fancybox fig-100 clear center" thumbnail-width="60%" src="/img/2017-12-02/3.png" >}}
 
 **オッケーだ！**
 
+----------
+
 引き続きマニュアルにある通り先に進める。
 
-これまではbuildの話。これからはdeployの話。
-wercker.ymlに設定を追加してdeployもお願いするとしよう。
+これまではbuildの話。
+これからはdeployの話。
 
-wercker.ymlはこんな感じになる。
+wercker.ymlに設定を追加してdeployもお願いするとしよう。wercker.ymlはこんな感じになる。
 
 ```
 box: golang:latest
@@ -179,17 +185,17 @@ deploy:
 
 werckerに新しいpipelineを作成して
 
-{{< image classes="fancybox fig-70" src="/img/2017-12-02/4.png" >}}
+{{< image classes="fancybox fig-100 clear center" thumbnail-width="60%" src="/img/2017-12-02/4.png" >}}
 
 上のwercker.ymlの`$GIT_TOKE`に必要なgithubのaccess tokenを作成して貼り付ける。
 
-{{< image classes="fancybox fig-70" src="/img/2017-12-02/5.png" >}}
+{{< image classes="fancybox fig-100 clear center" thumbnail-width="60%" src="/img/2017-12-02/5.png" >}}
 
-{{< image classes="fancybox fig-70" src="/img/2017-12-02/6.png" >}}
+{{< image classes="fancybox fig-100 clear center" thumbnail-width="60%" src="/img/2017-12-02/6.png" >}}
 
 workflowにpipelineを追加して
 
-{{< image classes="fancybox fig-70" src="/img/2017-12-02/7.png" >}}
+{{< image classes="fancybox fig-100 clear center" thumbnail-width="60%" src="/img/2017-12-02/7.png" >}}
 
 これで大丈夫かな。よし`git push`だ！
 
@@ -201,6 +207,37 @@ pipelineが無限ループした。。。。何やら`gh-pages`のstepはgh-page
 
 pipelineにはmasterブランチのpush hookしか受けないように設定しておくか。
 
-{{< image classes="fancybox fig-70" src="/img/2017-12-02/8.png" >}}
+{{< image classes="fancybox fig-100 clear center" thumbnail-width="60%" src="/img/2017-12-02/8.png" >}}
 
-これで大丈夫だと思われる。
+よしうまくいったぞー！！！
+
+-----------------
+
+さて、build deployまで自動化された。この結果ブランチはgh-pagesというbranchにpushされることになる。
+
+[Githu wtrdr/blog/gh-pages](https://github.com/wtrdr/blog/tree/gh-pages)
+
+なのでGithub Pageがこのディレクトリをtopディレクトリとして扱ってくれないと困る。設定を修正しておこう。Githubのページから [Settings] => [Github Pages] => [Srouce]にてgh-pages branchを使う。に設定。
+
+{{< image classes="fancybox fig-100 clear center" thumbnail-width="60%" src="/img/2017-12-02/9.png" >}}
+
+これで色々おわり！
+
+------------------
+
+## 掃除
+
+ということでdocsディレクトリ（`hugo`コマンドで生成されるhtmlが入るディレクトリ）が衝突しまくってめんどくさい。ということはなくなった！好きなだけmdで書いてそのままmasterにpushすればよろしくやってくれるはずだ！お互いのfileが欲しい場合には`git pull`すれば衝突もしないだろうし。
+
+ということでdocs directoryはお役御免なので
+
+```
+git rm -r docs
+rm -rf docs
+echo docs/ >> .gitignore
+```
+
+これでおしまい！！！
+いい仕事をした。
+
+ブログをここまで頑張って構築してる人ってそんなにおらんのではないだろうか　笑
