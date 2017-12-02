@@ -6,8 +6,10 @@ build:
         theme: "peak"
 deploy:
   steps:
-    - gh-pages:
+    - install-packages:
+        packages: git ssh-client
+    - lukevivier/gh-pages@0.2.1:
         token: $GIT_TOKEN
-        basedir: public
+        basedir: docs
         branch: master
-        domain: hugo-wercker.ig.nore.me
+        domain: blog.wataridori.co.jp
