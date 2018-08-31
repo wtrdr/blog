@@ -76,7 +76,7 @@ googleAnalytics = "UA-98609730-1"
 
   description = "株）ワタリドリのブログ"
   sidebarBehavior = 1
-  coverImage = "https://cdn.rawgit.com/wtrdr/blog/gh-pages/img/top.jpg"
+  coverImage = "https://cdn.rawgit.com/wtrdr/blog/gh-pages/img/top2.jpg"
 
   imageGallery = true
   thumbnailImage = true
