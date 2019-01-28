@@ -1,0 +1,1180 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+
+  
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-98609730-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-98609730-1');
+      </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.54-DEV with theme Tranquilpeak 0.4.3-BETA">
+    <title>OS自作入門 -Advent18-</title>
+    <meta name="author" content="wataridori inc.">
+    <meta name="keywords" content="株式会社ワタリドリ, wataridori inc., blog, wtrdr, ワタリドリ, ブログ, wataridori inc.">
+
+    <link rel="icon" href="https://blog.wataridori.co.jp/favicon.png">
+    
+
+    
+    <meta name="description" content="アドベントカレンダーな季節なので頑張ってOS自作入門をやってみたいと思います。今回は5step目の後半戦です！ELFフォーマットの展開を行います。">
+    <meta property="og:description" content="アドベントカレンダーな季節なので頑張ってOS自作入門をやってみたいと思います。今回は5step目の後半戦です！ELFフォーマットの展開を行います。">
+    <meta property="og:type" content="company">
+    <meta property="og:title" content="OS自作入門 -Advent18-">
+    <meta property="og:url" content="/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent18/">
+    <meta property="og:site_name" content="WATARIDORI BLOG">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="WATARIDORI BLOG">
+    <meta name="twitter:description" content="アドベントカレンダーな季節なので頑張ってOS自作入門をやってみたいと思います。今回は5step目の後半戦です！ELFフォーマットの展開を行います。">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="https://cdn.rawgit.com/wtrdr/blog/gh-pages/img/logo.jpg">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://blog.wataridori.co.jp/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://blog.wataridori.co.jp/css/custom.css">
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.wataridori.co.jp/">WATARIDORI BLOG</a>
+  </div>
+  
+    
+      <a class="header-right-icon facebook-link"
+         href="https://www.facebook.com/wataridori.co.jp" target="_blank" rel="noopener">
+    
+    
+      <i class="fa fa-lg fa-facebook-official"></i>
+    
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.wataridori.co.jp/">
+          <img class="sidebar-profile-picture" src="https://cdn.rawgit.com/wtrdr/blog/gh-pages/img/logo.jpg" alt="プロフィール画像" />
+        </a>
+        <h4 class="sidebar-profile-name">wataridori inc.</h4>
+        
+          <h5 class="sidebar-profile-bio">未知の体験とワクワクを。</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.wataridori.co.jp/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">ホーム</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.wataridori.co.jp/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">タグ</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.wataridori.co.jp/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">アーカイブ</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.wataridori.co.jp/page/about-us">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">プロフィール</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/wtrdr" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.wataridori.co.jp/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      OS自作入門 -Advent18-
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-12-18T00:00:00&#43;09:00">
+        
+  
+  
+  
+  
+    2017/12/18
+  
+
+      </time>
+    
+    
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E3%83%88%E3%83%AA%E3%83%AD%E3%82%B0/">トリログ</a>
+
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/tech/">Tech</a>
+
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/advent/">Advent</a>
+
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E6%8C%91%E6%88%A6/">挑戦</a>
+
+
+  </div>
+
+
+</div>
+
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<h2 id="step5-elfフォーマットの展開-後半">Step5 ELFフォーマットの展開 後半</h2>
+
+<p><a href="https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent16/">前回</a>はreadelfの結果を用いてelfフォーマットの中身を読んでみた。さて、今回はこれを元にしてelfフォーマットのファイルをメモリ内に展開するコードを追加する。</p>
+
+<p>追加・編集するのは以下のファイル。</p>
+
+<ul>
+<li>elf.h, elf.c （追加）<br />
+ELF形式の解析<br /></li>
+<li>main.c<br /></li>
+<li>Makefile<br />
+<br /></li>
+</ul>
+
+<h3 id="elf形式の解析処理">ELF形式の解析処理</h3>
+
+<h4 id="elf-h-elf-cの追加">elf.h, elf.cの追加</h4>
+
+<p><a href="https://github.com/wtrdr/os-advent2017/blob/master/05/bootload/elf.h">elf.h</a>, <a href="https://github.com/wtrdr/os-advent2017/blob/master/05/bootload/elf.c">elf.c</a>を追加する。追加した内容はリンクを参照。</p>
+
+<p><code>elf_load</code>という関数を追加している。シグニチャは<code>int elf_load(char *buf)</code>としている。これは引数bufをで与えられたメモリ領域に格納されているELF形式を解析する。</p>
+
+<p>ざっと<a href="https://github.com/wtrdr/os-advent2017/blob/master/05/bootload/elf.c">elf.c</a>を眺めると、構造体を作ってそのポインタを利用することによりフォーマットの中身を参照してcheckしたり読み込んだりしているようだ。確かに各フォーマットのbyte数が分かっていればこのような形で定義して上から順にマッピングをするというのはコードがシンプルになっていいという気がする。</p>
+
+<p>ちょっとわからなかったのは以下の部分</p>
+
+<pre><code class="language-c">  for (i = 0; i &lt; header-&gt;program_header_num; i++) {
+    phdr = (struct elf_program_header *)
+      ((char *)header + header-&gt;program_header_offset +
+       header-&gt;program_header_size * i);
+
+    if(phdr-&gt;type != 1)
+      continue;
+
+    putxval(phdr-&gt;offset,        6); puts(&quot; &quot;);
+    putxval(phdr-&gt;virtual_addr,  8); puts(&quot; &quot;);
+    putxval(phdr-&gt;physical_addr, 8); puts(&quot; &quot;);
+    putxval(phdr-&gt;file_size,     5); puts(&quot; &quot;);
+    putxval(phdr-&gt;memory_size,   5); puts(&quot; &quot;);
+    putxval(phdr-&gt;flags,         2); puts(&quot; &quot;);
+    putxval(phdr-&gt;align,         2); puts(&quot; &quot;);
+  }
+</code></pre>
+
+<p>最終的に<code>putxval</code>をしているところを見るとプログラムヘッダーの解析を行なっている箇所だと思われる。上のループの部分が、<code>program_header_num</code>を最大としてループを回している。確かにELFヘッダーには「プログラムヘッダーサイズ」というものがあるのでそこを終端にするのだろう。で次の行が<code>phdr</code>という<code>elf_program_header</code>というstructにcastしていく。最初の<code>(char *)header</code>これがなんで必要なのかちょっとわからなかった。そのあとは<code>program_header_offset</code>のバイト分だけ加算し、さらにループ分<code>program_header_size</code>をずらして都度読み込んでいる感じ。一旦細かいのは置いといて先に進むか。</p>
+
+<h4 id="main-cの修正">main.cの修正</h4>
+
+<p>あとは、<a href="https://github.com/wtrdr/os-advent2017/blob/master/05/bootload/main.c">main.c</a>にrunコマンドを追加する。これでload =&gt; runをすれば読み込まれるはず（とはいってシリアルにコンソール出力しているだけだけど）</p>
+
+<h4 id="makefileの修正">Makefileの修正</h4>
+
+<p><a href="https://github.com/wtrdr/os-advent2017/blob/master/05/bootload/Makefile">Makefile</a>にobjectフィアルを追加しただけ。</p>
+
+<h3 id="プログラムの実行">プログラムの実行</h3>
+
+<p>今回はstep4で作ったelfファイルを使ってロードすることにする。ロードはまだ行わず内部の解析だけを行なっているので問題はない。</p>
+
+<pre><code class="language-sh">make
+make image
+# スイッチを切り替えて書き込みモードに
+make write
+# スイッチを切り替えて読み込みモードに
+../../tools/bin/kz_xmodem  ../../04/bootload/kzload.elf   /dev/tty.usbserial-FT0BTH3I
+# =================================================
+#  XMODEM for KOZOS H8/3069F (Version 0.0.2)
+#  Copyright(C) 2012 Shinichiro Nakamura
+# =================================================
+# Flushing serial port.
+# Wait.
+# Setup load condition.
+# Wait a NAK.
+# ..........
+# Transmit the target ELF file.
+# File(../../04/bootload/kzload.elf): 41 blocks + 56 bytes
+# ..........................................
+# Wait a message from the target.
+# Complete.
+</code></pre>
+
+<p>こんな感じでstep4で作ったkzload.elfをkz_xmodemを使って転送する。これでH8のROM上にelfファイルが転送されたはずだ。なのでdumpコマンドを実行して上がっているのか確認してみる。</p>
+
+<pre><code class="language-sh">sudo cu -l /dev/tty.usbserial-FT0BTH3I -s 9600
+kzload&gt; dump
+# size: 1500
+# 7f 45 4c 46 01 02 01 00  00 00 00 00 00 00 00 00
+# 00 02 00 2e 00 00 00 01  00 00 01 00 00 00 00 34
+# 00 00 13 00 00 81 00 00  00 34 00 20 00 04 00 28
+....
+# 00 00 00 11 00 00 00 03  00 00 00 00 00 00 00 00
+# 00 00 12 ab 00 00 00 54  00 00 00 00 00 00 00 00
+# 00 00 00 01 00 00 00 00  1a 1a 1a 1a 1a 1a 1a 1a
+....
+</code></pre>
+
+<p>最初の方のバイトがELFヘッダの<code>マジック:  7f 45 4c 46 01 02 01 00 00 00 00 00 00 00 00 00</code>になっているのが確認できる。これでrunコマンドを実行する。</p>
+
+<pre><code>kzload&gt; run
+0000b4 00000000 00000000 00100 00100 06 01
+0001b4 00000100 00000100 0066a 0066a 05 01
+000820 0000076c 0000076c 000a5 000a5 04 01
+0008c8 00fffc20 00000811 00004 00018 06 01
+</code></pre>
+
+<p>この値が<a href="https://github.com/wtrdr/os-advent2017/blob/master/05/bootload/readelf-result3.txt#L43">プログラムヘッダテーブル</a>と一致している！上手く表現できているようだ。</p>
+
+<h3 id="論理回路">論理回路</h3>
+
+<blockquote>
+<p>ELF形式の解析が実装できましたが、まだ少し余裕があると思います。</p>
+</blockquote>
+
+<p>いやねぇよ。お腹いっぱいだよ。論理回路とかやるのか。。。<br />
+ということで書いてあるのでキャッチアップ。</p>
+
+<p><strong>NOT</strong><br />
+プログラムだと<code>!</code>で書かれている言語が多いかな。</p>
+
+<p><strong>AND</strong><br />
+論理演算の<code>&amp;&amp;</code></p>
+
+<p><strong>OR</strong><br />
+論理演算の<code>||</code></p>
+
+<p><strong>XOR</strong><br />
+論理演算の<code>^</code>かな。言語による気がする。</p>
+
+<h4 id="2bitの加算">2bitの加算</h4>
+
+<p>2進数の加算は</p>
+
+<pre><code>00 + 00 = 000
+00 + 01 = 001
+00 + 10 = 010
+00 + 11 = 011
+01 + 00 = 001
+01 + 01 = 010
+....
+....
+....
+....
+11 + 10 = 101
+11 + 11 = 110
+</code></pre>
+
+<p>こんな感じになる。ここで上記の式を<code>A1A2 + B1B2 = C1C2C3</code>（第一項の上位ビットA1下位ビットA2、同様に第二項の上位下位B1B2、結果の3桁C1C2C3）には次のような関係がある。</p>
+
+<pre><code>C1 =   A1 XOR B1
+C2 =  (A1 AND B1) XOR (A2 XOR B2)
+C3 = ((A1 AND B1) XOR (A2 XOR B2)) OR (A2 AND B2)
+</code></pre>
+
+<p>なので論理演算の組み合わせで2bitの加算は行うことができるということである。これが基礎の基礎。</p>
+
+<h4 id="論理ゲート">論理ゲート</h4>
+
+<p>先に図を出すと</p>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure fig-100 center" >
+  
+    <a class="fancybox" href="https://blog.wataridori.co.jp/img/2017-12-18/1.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://blog.wataridori.co.jp/img/2017-12-18/1.png" style="width: 50%;">
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+<p>これのこと。左からinputが入り右がoutputになる。</p>
+
+<p>例えばNOTゲートの入力と出力は</p>
+
+<table>
+<thead>
+<tr>
+<th>input</th>
+<th>output</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<p>例えばANDゲートの入力と出力は</p>
+
+<table>
+<thead>
+<tr>
+<th>input1</th>
+<th>input2</th>
+<th>output</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="加算器">加算器</h4>
+
+<p>なので先ほどの<code>A1A2 + B1B2 = C1C2C3</code>もこのゲートを使えば表現できる。</p>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure fig-100 center" >
+  
+    <a class="fancybox" href="https://blog.wataridori.co.jp/img/2017-12-18/2.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://blog.wataridori.co.jp/img/2017-12-18/2.png" style="width: 50%;">
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+<p>まぁややこしいがドットの部分が繋がっていると思って見るとなんとなくそうなっているのが分かるかと。これを加算器と呼び、このように複数の論理ゲートを組み合わせて作成するものを組み合わせ論理回路と呼ぶ。</p>
+
+<blockquote>
+<p>計算機の基本概念は、自然現象によって数値計算を行うことです。</p>
+</blockquote>
+
+<p>なるほど。意味が分からん。だが、この回路を作っておくと計算をすることなしに計算結果を得ることができる（電圧さえかけられれば）。という意図かと思っている。</p>
+
+<h4 id="比較器">比較器</h4>
+
+<p>同様に組み合わせ論理回路で比較するための回路を組むことができる。step2でDRAMやコントローラのチップ・セレクタ信号の接続に比較器を使っていた。これはコンパレータとも呼ばれていて、2つのinputの値が正しいかどうか（正しい場合は1を返す）。二つのinputの値を合わせると以下のようなoutputが得られる回路。</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>00</th>
+<th>01</th>
+<th>10</th>
+<th>11</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>00</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>01</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>11</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+<p>こんな感じになる。</p>
+
+<h4 id="マルチプレクサ">マルチプレクサ</h4>
+
+<p>入力された値に応じて、複数の入力からひとつを選んで出力する回路のこと。データ・セレクタと呼ばれるらしい。制御用のinputと出力のための値が入ってくるinputの口が用意されていて、以下のような感じでのアウトプットになる。</p>
+
+<table>
+<thead>
+<tr>
+<th>セレクタ0</th>
+<th>セレクタ1</th>
+<th>出力</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>input0の値</td>
+</tr>
+
+<tr>
+<td>0</td>
+<td>1</td>
+<td>input1の値</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td>0</td>
+<td>input2の値</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td>1</td>
+<td>input3の値</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="順序回路">順序回路</h4>
+
+<p>これまでの組み合わせ論理回路は現在の入力のみから出力が一意に決まっていたが、これに対して地震の出力を入力に戻すことも可能で、現在の入力と過去の状態から出力が決まるようになる。このような回路を順序回路と呼ぶ。自分にも聞いたことがあるやつだとフリップ・フロップ回路がそれにあたる。きっと見た目がサンダルに似ているからだろう。</p>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure fig-100 center" >
+  
+    <a class="fancybox" href="https://blog.wataridori.co.jp/img/2017-12-18/3.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://blog.wataridori.co.jp/img/2017-12-18/3.png" style="width: 50%;">
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+<table>
+<thead>
+<tr>
+<th>S</th>
+<th>R</th>
+<th>出力</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>保持</td>
+</tr>
+
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td>1</td>
+<td>不定</td>
+</tr>
+</tbody>
+</table>
+
+<p>となるので最大の特徴は、状態を維持することができるという点と、現在の状態を自由に変えることができるという点である。これで1bitのメモリとして取り扱うことができるようになる。 最終的に4bitのメモリの論理回路図が載っていたが興味のある方は本を読んでみていただければと。</p>
+
+<hr />
+
+<p>メモリの扱い方が構造体を宣言してよろしく上からマッピングしていく（明示的にindexとかを指定せず、型のbyte長に合わせる）ってのがなんかプログラミングでも使えそうだなーと思っているところ。可変長引数とかスプレッド演算子とかに似てるんだ。自分の感覚だと。論理演算は知らないという訳ではないがそこまで腰を据えて勉強したこともないし、パッと読み解けるほど慣れてはいないけど4bitの組み合わせ回路がみれてより理解が進んだ。これ開発した人ってすごいなーと思う。発想力というか。。。逆にこれしか解がないのか、素子を一つでも少なくして開発することができたりするとすごい発明になるんだろうなーと思う。</p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-meta">
+                    
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E3%83%88%E3%83%AA%E3%83%AD%E3%82%B0/">トリログ</a>
+
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/tech/">Tech</a>
+
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/advent/">Advent</a>
+
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E6%8C%91%E6%88%A6/">挑戦</a>
+
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7musthave-to-advent19/" data-tooltip="英語の勉強「must」「have to」-Advent19-">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">次の投稿</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7agreedisagree-advent17/" data-tooltip="英語の勉強「agree」「disagree」-Advent17-">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">前の投稿</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent18/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent18/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+    </ul>
+  
+</div>
+
+            
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2019 wataridori inc.. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7musthave-to-advent19/" data-tooltip="英語の勉強「must」「have to」-Advent19-">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">次の投稿</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7agreedisagree-advent17/" data-tooltip="英語の勉強「agree」「disagree」-Advent17-">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">前の投稿</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent18/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent18/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.wataridori.co.jp%2F2017%2F12%2Fos%25E8%2587%25AA%25E4%25BD%259C%25E5%2585%25A5%25E9%2596%2580-advent18%2F">
+          <i class="fa fa-facebook-official"></i><span>Facebookで共有</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.wataridori.co.jp%2F2017%2F12%2Fos%25E8%2587%25AA%25E4%25BD%259C%25E5%2585%25A5%25E9%2596%2580-advent18%2F">
+          <i class="fa fa-twitter"></i><span>Twitterで共有</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://cdn.rawgit.com/wtrdr/blog/gh-pages/img/logo.jpg" alt="プロフィール画像" />
+    
+    <h4 id="about-card-name">wataridori inc.</h4>
+    
+      <div id="about-card-bio">未知の体験とワクワクを。</div>
+    
+    
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="検索" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.wataridori.co.jp/2019/01/%E4%BB%8A%E5%B9%B4%E3%82%82%E5%A7%8B%E3%81%BE%E3%81%A3%E3%81%A61%E3%83%B6%E6%9C%88%E3%81%8C%E7%B5%8C%E3%81%A8%E3%81%86%E3%81%A8%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B/">
+                <h3 class="media-heading">今年も始まって1ヶ月が経とうとしている</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">明けました2019 今年も既に動きはじめているが、こんな一年にしたいなというのを打ち立てた。 今年は 「変化」 の年や！ 去年はいろんな場所に行き、モ</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.wataridori.co.jp/2019/01/%E9%95%B7%E9%87%8E%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E5%A0%B4%E6%89%80%E6%8E%A2%E3%81%97%E6%8C%AF%E3%82%8A%E5%87%BA%E3%81%97%E3%81%AB%E6%88%BB%E3%82%8B/">
+                <h3 class="media-heading">長野プロジェクト：場所探し、振り出しに戻る</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">ワタリドリは長野に拠点を作ることにしました！ 今の場所はそのままにおいておくつもりで、 長野は私達が住む場所、開かれた場所、旅人が休める場所。 私</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.wataridori.co.jp/2018/12/%E9%95%B7%E9%87%8E%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E5%A0%B4%E6%89%80%E3%82%92%E6%8E%A2%E3%81%99/">
+                <h3 class="media-heading">長野プロジェクト：場所を探す</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">ワタリドリは長野に拠点を作ることにしました！ 今の場所はそのままにおいておくつもりで、 長野は私達が住む場所、開かれた場所、旅人が休める場所。 私</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.wataridori.co.jp/2018/11/%E3%82%BF%E3%82%A4%EF%BC%93%E6%97%A5%E7%9B%AE-%E3%83%81%E3%82%A7%E3%83%B3%E3%83%9E%E3%82%A4%E3%81%AE%E5%8F%B3%E5%81%B4%E3%81%B8/">
+                <h3 class="media-heading">【タイ】３日目　チェンマイの右側へ</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">カフェで朝食を ゲストハウスのフリーの朝食はパスしてチェックアウト。 今日の予定はSPチキン。 まずは徒歩圏内のカフェで朝食を。 鳥はチーズのホット</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.wataridori.co.jp/2018/11/%E3%82%BF%E3%82%A4%EF%BC%92%E6%97%A5%E7%9B%AE-%E3%83%81%E3%82%A7%E3%83%B3%E3%83%9E%E3%82%A4%E5%B7%A6%E5%81%B4%E4%B8%8A%E3%82%92%E3%82%86%E3%82%8B%E3%82%86%E3%82%8B/">
+                <h3 class="media-heading">【タイ】２日目　チェンマイ左側上をゆるゆる</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">チェンマイってお堀があって、その中を旧市街地と言って、観光客がたくさんいます。 郊外に出ればお高めのホテルがあったり、自然豊かみたいだけど、仕</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.wataridori.co.jp/2018/11/%E3%82%BF%E3%82%A4%EF%BC%91%E6%97%A5%E7%9B%AE-%E3%83%81%E3%82%A7%E3%83%B3%E3%83%9E%E3%82%A4%E3%81%AB%E5%88%B0%E7%9D%80/">
+                <h3 class="media-heading">【タイ】１日目　チェンマイに到着</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">先行き不安な。。笑 今回は、scoot（スクート）というシンガポールのCLLでバンコクのドンムアン空港へ。 そこから、国内線でチェンマイに行きま</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.wataridori.co.jp/2018/08/%E5%A4%B1%E3%82%8F%E3%82%8C%E3%81%9F20%E5%B9%B4%E3%81%A8%E4%BA%BA%E9%80%A0%E4%BA%BA%E9%96%93/">
+                <h3 class="media-heading">失われた20年と人造人間</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">失われていく日々 昭和という「レガシー」を引きずった平成30年間の経済停滞を振り返る こんな記事が上がっていた。日本の企業ってのは昔はすごかった</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.wataridori.co.jp/2018/07/%E6%B1%BA%E3%81%BE%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%93%E3%81%A8%E3%82%84%E3%82%8B%E3%81%93%E3%81%A8/">
+                <h3 class="media-heading">決まっていること・やること</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jul 7, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">古民家でゲストハウスだ。 と思ったのはアメリカから帰ってきた直後。 それ以外表現のしようがなかったのでそう言っているのだが。 アメリカで10年来の</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.wataridori.co.jp/2018/06/%E6%97%85%E3%83%AD%E3%82%B0%E3%83%AA%E3%82%B9%E3%83%88/">
+                <h3 class="media-heading">旅ログリスト</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jun 6, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">旅ログ。 書くのが遅くて、準備中がどんどん溜まっていく(笑) なんで書くんだっけ？ ・素敵な場所と出会いとその時感じたことを忘れないように ・この場</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.wataridori.co.jp/2018/05/%E3%83%95%E3%82%A3%E3%83%AA%E3%83%94%E3%83%B3%E3%82%A8%E3%83%AB%E3%83%8B%E3%83%89-%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88-%E3%81%9D%E3%81%AE%EF%BC%92/">
+                <h3 class="media-heading">【フィリピン】エルニド　レポート　その２</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">2017年11月にフィリピンに行ってきました。 3日目は早朝、ホテルを出発してパラワン島・エルニドへ。エルニド到着後はお散歩したあと、トライシ</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         106 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://cdn.rawgit.com/wtrdr/blog/gh-pages/img/top2.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://blog.wataridori.co.jp/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+  
+
+
+
+    
+  </body>
+</html>
+

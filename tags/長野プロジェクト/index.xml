@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>長野プロジェクト on WATARIDORI BLOG</title>
+    <link>https://blog.wataridori.co.jp/tags/%E9%95%B7%E9%87%8E%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/</link>
+    <description>Recent content in 長野プロジェクト on WATARIDORI BLOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 26 Jan 2019 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://blog.wataridori.co.jp/tags/%E9%95%B7%E9%87%8E%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>長野プロジェクト：場所探し、振り出しに戻る</title>
+      <link>https://blog.wataridori.co.jp/2019/01/%E9%95%B7%E9%87%8E%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E5%A0%B4%E6%89%80%E6%8E%A2%E3%81%97%E6%8C%AF%E3%82%8A%E5%87%BA%E3%81%97%E3%81%AB%E6%88%BB%E3%82%8B/</link>
+      <pubDate>Sat, 26 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2019/01/%E9%95%B7%E9%87%8E%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E5%A0%B4%E6%89%80%E6%8E%A2%E3%81%97%E6%8C%AF%E3%82%8A%E5%87%BA%E3%81%97%E3%81%AB%E6%88%BB%E3%82%8B/</guid>
+      <description>ワタリドリは長野に拠点を作ることにしました！ 今の場所はそのままにおいておくつもりで、 長野は私達が住む場所、開かれた場所、旅人が休める場所。 私</description>
+    </item>
+    
+    <item>
+      <title>長野プロジェクト：場所を探す</title>
+      <link>https://blog.wataridori.co.jp/2018/12/%E9%95%B7%E9%87%8E%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E5%A0%B4%E6%89%80%E3%82%92%E6%8E%A2%E3%81%99/</link>
+      <pubDate>Tue, 18 Dec 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2018/12/%E9%95%B7%E9%87%8E%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E5%A0%B4%E6%89%80%E3%82%92%E6%8E%A2%E3%81%99/</guid>
+      <description>ワタリドリは長野に拠点を作ることにしました！ 今の場所はそのままにおいておくつもりで、 長野は私達が住む場所、開かれた場所、旅人が休める場所。 私</description>
+    </item>
+    
+  </channel>
+</rss>

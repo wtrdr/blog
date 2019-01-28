@@ -1,0 +1,856 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+
+  
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-98609730-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-98609730-1');
+      </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.54-DEV with theme Tranquilpeak 0.4.3-BETA">
+    <title>OS自作入門 -Advent14-</title>
+    <meta name="author" content="wataridori inc.">
+    <meta name="keywords" content="株式会社ワタリドリ, wataridori inc., blog, wtrdr, ワタリドリ, ブログ, wataridori inc.">
+
+    <link rel="icon" href="https://blog.wataridori.co.jp/favicon.png">
+    
+
+    
+    <meta name="description" content="アドベントカレンダーな季節なので頑張ってOS自作入門をやってみたいと思います。今回は4step目の後半です！ファイル転送についてやっていきます。">
+    <meta property="og:description" content="アドベントカレンダーな季節なので頑張ってOS自作入門をやってみたいと思います。今回は4step目の後半です！ファイル転送についてやっていきます。">
+    <meta property="og:type" content="company">
+    <meta property="og:title" content="OS自作入門 -Advent14-">
+    <meta property="og:url" content="/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent14/">
+    <meta property="og:site_name" content="WATARIDORI BLOG">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="WATARIDORI BLOG">
+    <meta name="twitter:description" content="アドベントカレンダーな季節なので頑張ってOS自作入門をやってみたいと思います。今回は4step目の後半です！ファイル転送についてやっていきます。">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="https://cdn.rawgit.com/wtrdr/blog/gh-pages/img/logo.jpg">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://blog.wataridori.co.jp/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://blog.wataridori.co.jp/css/custom.css">
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.wataridori.co.jp/">WATARIDORI BLOG</a>
+  </div>
+  
+    
+      <a class="header-right-icon facebook-link"
+         href="https://www.facebook.com/wataridori.co.jp" target="_blank" rel="noopener">
+    
+    
+      <i class="fa fa-lg fa-facebook-official"></i>
+    
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.wataridori.co.jp/">
+          <img class="sidebar-profile-picture" src="https://cdn.rawgit.com/wtrdr/blog/gh-pages/img/logo.jpg" alt="プロフィール画像" />
+        </a>
+        <h4 class="sidebar-profile-name">wataridori inc.</h4>
+        
+          <h5 class="sidebar-profile-bio">未知の体験とワクワクを。</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.wataridori.co.jp/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">ホーム</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.wataridori.co.jp/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">タグ</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.wataridori.co.jp/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">アーカイブ</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.wataridori.co.jp/page/about-us">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">プロフィール</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/wtrdr" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.wataridori.co.jp/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      OS自作入門 -Advent14-
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-12-14T00:00:00&#43;09:00">
+        
+  
+  
+  
+  
+    2017/12/14
+  
+
+      </time>
+    
+    
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E3%83%88%E3%83%AA%E3%83%AD%E3%82%B0/">トリログ</a>
+
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/tech/">Tech</a>
+
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/advent/">Advent</a>
+
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E6%8C%91%E6%88%A6/">挑戦</a>
+
+
+  </div>
+
+
+</div>
+
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<h2 id="step4-シリアル経由でファイルを転送する-後半">Step4 シリアル経由でファイルを転送する 後半</h2>
+
+<p>この記事でstep4は3つめの記事になる。おそらくあと一回で終わるだろう。新しい知識の上に新しい知識を重ねるので振り返ることが多くて理解に時間がかかるな。続きにいくとしよう。Step4を通して、ブートローダーとは何なのか、どのような手順でOSを起動するまで持っていくのか、それに必要なブートローダーの機能、シリアル経由でファイルを転送する仕組み、xmodemの実装を行った。</p>
+
+<p>さて、これで準備は整った。シリアル経由でファイルを転送し、ブートローダーに対してファイルを渡してあげよう。</p>
+
+<h3 id="プログラム実行">プログラム実行</h3>
+
+<p>今回は<a href="https://ja.osdn.net/projects/kz-xmodem/">kz_xmodem</a>を使って転送を行うことにした。ダウンロードして解凍してmake。<br />
+ちなみにソースコードは<a href="https://github.com/kshimo69/h83069fos/blob/master/tools/kz_xmodem/src/kz_xmodem.c">Github kz_xmodem.c</a>かな。</p>
+
+<h4 id="ファイル転送">ファイル転送</h4>
+
+<p>いつも通り実行ファイルの作成を行い、転送、実行モードに切り替えてシリアル接続まで行う。</p>
+
+<pre><code class="language-sh">make
+make image
+# 書き込みモードに切り替えて
+make write
+# 読み込みモードに切り替えて
+sudo cu -l /dev/tty.usbserial-XXXXXXXX -s 9600
+kzload (kozos boot loader) started.
+kzload&gt;
+</code></pre>
+
+<p>こうなる。おぉ、これは自分で打った記憶がある。なるほど。さてここで<code>load</code>というコマンドを打つと以下のように待ち状態になる。</p>
+
+<pre><code class="language-sh">kzload&gt; aaa
+unknown.
+kzload&gt; load
+# これでファイル転送待ちになる
+</code></pre>
+
+<p>本来であればここで子プロセスを立ち上げてファイルを送信するというやり方が本には載っている。が、kz_modemの方は少しやり方が違うらしい。</p>
+
+<ol>
+<li>一旦リセットボタン押してリセット<br /></li>
+<li>上記<code>kzload&gt;</code>の接続は切る（<code>~.</code>と入力するとconnectionが切れる）<br /></li>
+<li><code>../../tools/bin/kz_xmodem  defines.h  /dev/tty.usbserial-XXXXXXXX</code>と入力<br />
+<br /></li>
+</ol>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure fig-100 center" >
+  
+    <a class="fancybox" href="https://blog.wataridori.co.jp/img/2017-12-14/1.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://blog.wataridori.co.jp/img/2017-12-14/1.png" style="width: 70%;">
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+<p>こんな感じでcompleteの表示が出ればOK！この後に<strong>リセットボタンを押さずに</strong><code>cu</code>で接続する。</p>
+
+<pre><code class="language-sh">sudo cu -l /dev/tty.usbserial-XXXXXXXX -s 9600
+kz_load&gt; dump
+# size: 100
+# 23 69 66 6e 64 65 66 20  5f 44 45 46 49 4e 45 53
+# 5f 48 5f 49 4e 43 4c 55  44 45 44 5f 0a 23 64 65
+# 66 69 6e 65 20 5f 44 45  46 49 4e 45 53 5f 48 5f
+# 49 4e 43 4c 55 44 45 44  5f 0a 0a 23 64 65 66 69
+# 6e 65 20 4e 55 4c 4c 20  28 28 76 6f 69 64 20 2a
+# 29 30 29 0a 23 64 65 66  69 6e 65 20 53 45 52 49
+# 41 4c 5f 44 45 46 41 55  4c 54 5f 44 45 56 49 43
+# 45 20 31 0a 0a 74 79 70  65 64 65 66 20 75 6e 73
+# 69 67 6e 65 64 20 63 68  61 72 20 20 75 69 6e 74
+# 38 3b 0a 74 79 70 65 64  65 66 20 75 6e 73 69 67
+# 6e 65 64 20 73 68 6f 72  74 20 75 69 6e 74 31 36
+# 3b 0a 74 79 70 65 64 65  66 20 75 6e 73 69 67 6e
+# 65 64 20 6c 6f 6e 67 20  20 75 69 6e 74 33 32 3b
+# 0a 0a 23 65 6e 64 69 66  0a 1a 1a 1a 1a 1a 1a 1a
+# 1a 1a 1a 1a 1a 1a 1a 1a  1a 1a 1a 1a 1a 1a 1a 1a
+# 1a 1a 1a 1a 1a 1a 1a 1a  1a 1a 1a 1a 1a 1a 1a 1a
+</code></pre>
+
+<p>こんな感じになるだろう。（今はdefines.hファイルをloadしているので小さめ）</p>
+
+<h4 id="転送結果の確認">転送結果の確認</h4>
+
+<p>上記の内容と<code>hexdump -C defines.h</code>をローカルで出力した内容の比較を行う。</p>
+
+<pre><code class="language-sh">hexdump -C defines.h
+# 00000000  23 69 66 6e 64 65 66 20  5f 44 45 46 49 4e 45 53  |#ifndef _DEFINES|
+# 00000010  5f 48 5f 49 4e 43 4c 55  44 45 44 5f 0a 23 64 65  |_H_INCLUDED_.#de|
+# 00000020  66 69 6e 65 20 5f 44 45  46 49 4e 45 53 5f 48 5f  |fine _DEFINES_H_|
+# 00000030  49 4e 43 4c 55 44 45 44  5f 0a 0a 23 64 65 66 69  |INCLUDED_..#defi|
+# 00000040  6e 65 20 4e 55 4c 4c 20  28 28 76 6f 69 64 20 2a  |ne NULL ((void *|
+# 00000050  29 30 29 0a 23 64 65 66  69 6e 65 20 53 45 52 49  |)0).#define SERI|
+# 00000060  41 4c 5f 44 45 46 41 55  4c 54 5f 44 45 56 49 43  |AL_DEFAULT_DEVIC|
+# 00000070  45 20 31 0a 0a 74 79 70  65 64 65 66 20 75 6e 73  |E 1..typedef uns|
+# 00000080  69 67 6e 65 64 20 63 68  61 72 20 20 75 69 6e 74  |igned char  uint|
+# 00000090  38 3b 0a 74 79 70 65 64  65 66 20 75 6e 73 69 67  |8;.typedef unsig|
+# 000000a0  6e 65 64 20 73 68 6f 72  74 20 75 69 6e 74 31 36  |ned short uint16|
+# 000000b0  3b 0a 74 79 70 65 64 65  66 20 75 6e 73 69 67 6e  |;.typedef unsign|
+# 000000c0  65 64 20 6c 6f 6e 67 20  20 75 69 6e 74 33 32 3b  |ed long  uint32;|
+# 000000d0  0a 0a 23 65 6e 64 69 66  0a                       |..#endif.|
+# 000000d9
+</code></pre>
+
+<p>真ん中の方が同じ構造している！転送ができてることが確認できた！</p>
+
+<h3 id="アセンブラ-プログラミング">アセンブラ・プログラミング</h3>
+
+<p>この本の内容の多くはc言語で書かれているが一部アセンブラじゃないとどうしても書けない部分があるとのこと。それは「スタートアップ」「割込みの入口と出口」「スレッドのディスパッチ」の3箇所。読み方のコツは目的を意識することらしい。まぁ確かに自分の現時点の理解だとアセンブラってレジスタ周りの値をコピーしたり書き込んだり移動したりを連続で書いていくものっぽいので各行を理解したとしても全体として謎みたいなことにはなりそうである。</p>
+
+<h4 id="スタック">スタック</h4>
+
+<p>javaやってたときにスタック領域とかヒープ領域とか出て来たなぁ。という脱線はともかくここでは静的変数で全部定義するとメモリに常駐して無駄この上ないから関数内の一時的な変数とかはreturnで抜けた時に捨てられてメモリ領域は使い回されるようにしましょう。という話。ここでのやり方としては以下の通り。</p>
+
+<ol>
+<li>ある程度の容量の領域を確保<br /></li>
+<li>今現在どこの領域まで利用しているのかを示すポインタを用意する<br /></li>
+<li>自然変数（一時変数）が必要になった場合には、必要分だけポインタをずらす。<br /></li>
+<li>ポインタをずらした分の領域は自由に利用可能<br /></li>
+<li>さらに関数が呼び出されたらポインタを必要分だけずらす<br /></li>
+<li>関数から戻る時にはポインタを戻す。<br />
+<br /></li>
+</ol>
+
+<p>という流れ。スタックを管理するために利用されるポインタを<strong>スタック・ポインタ</strong>、関数単位でスタック上に確保される領域を<strong>スタック・フレーム</strong>と呼ぶ。これjavaとかrubyとかやっていると無限ループした時にstack overflowとか言うけどポインタそれ以上ズラせなくなっちゃった。みたいな状態なのかな。<a href="https://www.uquest.co.jp/embedded/learning/lecture07-1.html">この辺り</a>に載っているのが噛み砕いていて結構分かりやすかった。</p>
+
+<h4 id="アセンブラ">アセンブラ</h4>
+
+<p>現時点のソースコードだと<a href="https://github.com/wtrdr/os-advent2017/blob/master/04/bootload/startup.s">startup.s</a>が該当する。</p>
+
+<p>CPUはメモリ上にある命令を順次実行していくが、メモリ上には数値しか保存できないため命令自体も<code>0x01</code>というような数値になっている。</p>
+
+<p>実際の命令の種類はそんなに多くなく、「メモリからレジスタにデータを読み込む」「レジスタのデータをメモリに書き込む」「加算」などといったかなりローレベルな簡単なものの集まりである。ここでいう<strong>レジスタ</strong>はstep2で出てきた<strong>コントローラの持つレジスタ</strong>とは異なり、CPUの持つレジスタのことを指している。</p>
+
+<p>最近のCPUは内部にレジスタを持っていて加減算の処理はこのレジスタに直結しているため、結局メモリ上にある値といえども一度レジスタにコピーして演算をする必要がある。なので例えば c = a + bの演算は、a =&gt; レジスタ1に読み込む、b =&gt; レジスタ2に読み込む、加算処理 =&gt; 結果をレジスタ3へ書き込む、レジスタ3の値を変数cのメモリに書き込む。という流れになっている。</p>
+
+<p>このC言語で書かれている処理を上記4つの流れに置き換えるのがコンパイラの役割とのこと。</p>
+
+<h4 id="プログラム-カウンタ">プログラム・カウンタ</h4>
+
+<p>上記のような演算の途中に使うようなレジスタは汎用レジスタと呼ばれる一方で、CPUが現在実行している命令のアドレスを指すものをプログラム・カウンタと呼ぶ。CPUはプログラム・カウンタで指す先のメモリの値を読み込んで命令として実行しているだけである。</p>
+
+<h4 id="ニーモニックとアセンブラ">ニーモニックとアセンブラ</h4>
+
+<p>遠い昔にどこかで聞いたことのある単語が出てきた。ニーモニック。。。アセンブラの命令部分をオペコード、引数部分をオペランドと呼ぶ。ここまでは知ってる。例えば<code>0x01</code>という数値はロード（メモリからレジストリに値を読み込む）を表し、引数としては1バイトのレジスタ番号、2バイトのアドレスを持つ。これを実行すると<code>アドレスの指す一のメモリ上の値をレジスタにロードする</code>という処理を実行することになる。</p>
+
+<pre><code>01 01 80 00
+</code></pre>
+
+<p>これは1番レジスタにアドレス0x8000の値をロードする。と読める</p>
+
+<p>この<code>どの数値がどのような命令として動作するのか</code>という決まりを「命令セット」と呼ぶ。なるほど。いまいち命令セットってぼやっとした理解だったがそういうことか。当然H8とi386の命令セットは全然違う。</p>
+
+<p>さて、ニーモニックとは<code>0x01</code>という数値だと人間にはわかりにくいので名前つけました。というものをニーモニックと呼ぶらしい。<code>0x01</code>はロードなのでld。とかね。なのでニーモニックを使うと上記の例は</p>
+
+<pre><code>ld r1, 0x0000
+</code></pre>
+
+<p>こんな感じになる。ただしこれはあくまでも人間用なのでこれを結局<code>01 01 80 00</code>という形にする必要があり、それをアセンブルすると呼び、その役割を担うものアセンブラと呼ぶ。アセンブラについてはCPUのマニュアルに記載があるとのこと。</p>
+
+<hr />
+
+<p>今日はここまで。次回はmain.cにテストコードを埋めてアセンブラのコードを見ていくことになりそう。少しずつかけている知識が補完されていく感じがいいな。</p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-meta">
+                    
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E3%83%88%E3%83%AA%E3%83%AD%E3%82%B0/">トリログ</a>
+
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/tech/">Tech</a>
+
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/advent/">Advent</a>
+
+  <a class="link-unstyled" href="https://blog.wataridori.co.jp/tags/%E6%8C%91%E6%88%A6/">挑戦</a>
+
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent15/" data-tooltip="OS自作入門 -Advent15-">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">次の投稿</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent13/" data-tooltip="OS自作入門 -Advent13-">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">前の投稿</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent14/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent14/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+    </ul>
+  
+</div>
+
+            
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2019 wataridori inc.. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent15/" data-tooltip="OS自作入門 -Advent15-">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">次の投稿</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent13/" data-tooltip="OS自作入門 -Advent13-">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">前の投稿</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent14/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent14/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.wataridori.co.jp%2F2017%2F12%2Fos%25E8%2587%25AA%25E4%25BD%259C%25E5%2585%25A5%25E9%2596%2580-advent14%2F">
+          <i class="fa fa-facebook-official"></i><span>Facebookで共有</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.wataridori.co.jp%2F2017%2F12%2Fos%25E8%2587%25AA%25E4%25BD%259C%25E5%2585%25A5%25E9%2596%2580-advent14%2F">
+          <i class="fa fa-twitter"></i><span>Twitterで共有</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://cdn.rawgit.com/wtrdr/blog/gh-pages/img/logo.jpg" alt="プロフィール画像" />
+    
+    <h4 id="about-card-name">wataridori inc.</h4>
+    
+      <div id="about-card-bio">未知の体験とワクワクを。</div>
+    
+    
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="検索" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.wataridori.co.jp/2019/01/%E4%BB%8A%E5%B9%B4%E3%82%82%E5%A7%8B%E3%81%BE%E3%81%A3%E3%81%A61%E3%83%B6%E6%9C%88%E3%81%8C%E7%B5%8C%E3%81%A8%E3%81%86%E3%81%A8%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B/">
+                <h3 class="media-heading">今年も始まって1ヶ月が経とうとしている</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">明けました2019 今年も既に動きはじめているが、こんな一年にしたいなというのを打ち立てた。 今年は 「変化」 の年や！ 去年はいろんな場所に行き、モ</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.wataridori.co.jp/2019/01/%E9%95%B7%E9%87%8E%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E5%A0%B4%E6%89%80%E6%8E%A2%E3%81%97%E6%8C%AF%E3%82%8A%E5%87%BA%E3%81%97%E3%81%AB%E6%88%BB%E3%82%8B/">
+                <h3 class="media-heading">長野プロジェクト：場所探し、振り出しに戻る</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">ワタリドリは長野に拠点を作ることにしました！ 今の場所はそのままにおいておくつもりで、 長野は私達が住む場所、開かれた場所、旅人が休める場所。 私</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.wataridori.co.jp/2018/12/%E9%95%B7%E9%87%8E%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E5%A0%B4%E6%89%80%E3%82%92%E6%8E%A2%E3%81%99/">
+                <h3 class="media-heading">長野プロジェクト：場所を探す</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">ワタリドリは長野に拠点を作ることにしました！ 今の場所はそのままにおいておくつもりで、 長野は私達が住む場所、開かれた場所、旅人が休める場所。 私</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.wataridori.co.jp/2018/11/%E3%82%BF%E3%82%A4%EF%BC%93%E6%97%A5%E7%9B%AE-%E3%83%81%E3%82%A7%E3%83%B3%E3%83%9E%E3%82%A4%E3%81%AE%E5%8F%B3%E5%81%B4%E3%81%B8/">
+                <h3 class="media-heading">【タイ】３日目　チェンマイの右側へ</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">カフェで朝食を ゲストハウスのフリーの朝食はパスしてチェックアウト。 今日の予定はSPチキン。 まずは徒歩圏内のカフェで朝食を。 鳥はチーズのホット</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.wataridori.co.jp/2018/11/%E3%82%BF%E3%82%A4%EF%BC%92%E6%97%A5%E7%9B%AE-%E3%83%81%E3%82%A7%E3%83%B3%E3%83%9E%E3%82%A4%E5%B7%A6%E5%81%B4%E4%B8%8A%E3%82%92%E3%82%86%E3%82%8B%E3%82%86%E3%82%8B/">
+                <h3 class="media-heading">【タイ】２日目　チェンマイ左側上をゆるゆる</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">チェンマイってお堀があって、その中を旧市街地と言って、観光客がたくさんいます。 郊外に出ればお高めのホテルがあったり、自然豊かみたいだけど、仕</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.wataridori.co.jp/2018/11/%E3%82%BF%E3%82%A4%EF%BC%91%E6%97%A5%E7%9B%AE-%E3%83%81%E3%82%A7%E3%83%B3%E3%83%9E%E3%82%A4%E3%81%AB%E5%88%B0%E7%9D%80/">
+                <h3 class="media-heading">【タイ】１日目　チェンマイに到着</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">先行き不安な。。笑 今回は、scoot（スクート）というシンガポールのCLLでバンコクのドンムアン空港へ。 そこから、国内線でチェンマイに行きま</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.wataridori.co.jp/2018/08/%E5%A4%B1%E3%82%8F%E3%82%8C%E3%81%9F20%E5%B9%B4%E3%81%A8%E4%BA%BA%E9%80%A0%E4%BA%BA%E9%96%93/">
+                <h3 class="media-heading">失われた20年と人造人間</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">失われていく日々 昭和という「レガシー」を引きずった平成30年間の経済停滞を振り返る こんな記事が上がっていた。日本の企業ってのは昔はすごかった</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.wataridori.co.jp/2018/07/%E6%B1%BA%E3%81%BE%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%93%E3%81%A8%E3%82%84%E3%82%8B%E3%81%93%E3%81%A8/">
+                <h3 class="media-heading">決まっていること・やること</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jul 7, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">古民家でゲストハウスだ。 と思ったのはアメリカから帰ってきた直後。 それ以外表現のしようがなかったのでそう言っているのだが。 アメリカで10年来の</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.wataridori.co.jp/2018/06/%E6%97%85%E3%83%AD%E3%82%B0%E3%83%AA%E3%82%B9%E3%83%88/">
+                <h3 class="media-heading">旅ログリスト</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jun 6, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">旅ログ。 書くのが遅くて、準備中がどんどん溜まっていく(笑) なんで書くんだっけ？ ・素敵な場所と出会いとその時感じたことを忘れないように ・この場</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.wataridori.co.jp/2018/05/%E3%83%95%E3%82%A3%E3%83%AA%E3%83%94%E3%83%B3%E3%82%A8%E3%83%AB%E3%83%8B%E3%83%89-%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88-%E3%81%9D%E3%81%AE%EF%BC%92/">
+                <h3 class="media-heading">【フィリピン】エルニド　レポート　その２</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">2017年11月にフィリピンに行ってきました。 3日目は早朝、ホテルを出発してパラワン島・エルニドへ。エルニド到着後はお散歩したあと、トライシ</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         106 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://cdn.rawgit.com/wtrdr/blog/gh-pages/img/top2.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://blog.wataridori.co.jp/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+  
+
+
+
+    
+  </body>
+</html>
+

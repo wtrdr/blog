@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gcp on WATARIDORI BLOG</title>
+    <link>https://blog.wataridori.co.jp/tags/gcp/</link>
+    <description>Recent content in Gcp on WATARIDORI BLOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 16 Jun 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.wataridori.co.jp/tags/gcp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Google Cloud Next Tokyo 2017</title>
+      <link>https://blog.wataridori.co.jp/2017/06/google-cloud-next-tokyo-2017/</link>
+      <pubDate>Fri, 16 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/06/google-cloud-next-tokyo-2017/</guid>
+      <description>Google Cloudが主催しているGoogle Cloud Next Tokyoというイベントが東京で開催されたので行ってきた。結構ツメツメで一つの時間帯に4,5セッシ</description>
+    </item>
+    
+  </channel>
+</rss>

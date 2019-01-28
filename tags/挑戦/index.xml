@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>挑戦 on WATARIDORI BLOG</title>
+    <link>https://blog.wataridori.co.jp/tags/%E6%8C%91%E6%88%A6/</link>
+    <description>Recent content in 挑戦 on WATARIDORI BLOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 28 Jan 2019 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://blog.wataridori.co.jp/tags/%E6%8C%91%E6%88%A6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>今年も始まって1ヶ月が経とうとしている</title>
+      <link>https://blog.wataridori.co.jp/2019/01/%E4%BB%8A%E5%B9%B4%E3%82%82%E5%A7%8B%E3%81%BE%E3%81%A3%E3%81%A61%E3%83%B6%E6%9C%88%E3%81%8C%E7%B5%8C%E3%81%A8%E3%81%86%E3%81%A8%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B/</link>
+      <pubDate>Mon, 28 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2019/01/%E4%BB%8A%E5%B9%B4%E3%82%82%E5%A7%8B%E3%81%BE%E3%81%A3%E3%81%A61%E3%83%B6%E6%9C%88%E3%81%8C%E7%B5%8C%E3%81%A8%E3%81%86%E3%81%A8%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B/</guid>
+      <description>明けました2019 今年も既に動きはじめているが、こんな一年にしたいなというのを打ち立てた。 今年は 「変化」 の年や！ 去年はいろんな場所に行き、モ</description>
+    </item>
+    
+    <item>
+      <title>tttab開発日記</title>
+      <link>https://blog.wataridori.co.jp/2018/04/tttab%E9%96%8B%E7%99%BA%E6%97%A5%E8%A8%98/</link>
+      <pubDate>Mon, 30 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2018/04/tttab%E9%96%8B%E7%99%BA%E6%97%A5%E8%A8%98/</guid>
+      <description>tttabを開発した 経緯 日々いくつかchromeの拡張機能（extension）を利用して仕事をしたり情報収集したりしている。 それなりにショ</description>
+    </item>
+    
+    <item>
+      <title>カオスから生まれるもの</title>
+      <link>https://blog.wataridori.co.jp/2018/04/%E3%82%AB%E3%82%AA%E3%82%B9%E3%81%8B%E3%82%89%E7%94%9F%E3%81%BE%E3%82%8C%E3%82%8B%E3%82%82%E3%81%AE/</link>
+      <pubDate>Sun, 22 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2018/04/%E3%82%AB%E3%82%AA%E3%82%B9%E3%81%8B%E3%82%89%E7%94%9F%E3%81%BE%E3%82%8C%E3%82%8B%E3%82%82%E3%81%AE/</guid>
+      <description>「やりたいことは特にない」から始まったもの やりたいことは特にない。 ではあったが色々と偶然もあり友達も含めて3人で話をする機会が増えた。 その中</description>
+    </item>
+    
+    <item>
+      <title>RasberryPi3と戯れる -その２-</title>
+      <link>https://blog.wataridori.co.jp/2018/03/rasberrypi3%E3%81%A8%E6%88%AF%E3%82%8C%E3%82%8B-%E3%81%9D%E3%81%AE%EF%BC%92/</link>
+      <pubDate>Sun, 25 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2018/03/rasberrypi3%E3%81%A8%E6%88%AF%E3%82%8C%E3%82%8B-%E3%81%9D%E3%81%AE%EF%BC%92/</guid>
+      <description>久しぶりにRaspberryPiと戯れる かなり昔にその１をやったきり活動していなかったので再開。 おかげで以前の設定内容をほぼ忘れていてログイ</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent37-</title>
+      <link>https://blog.wataridori.co.jp/2018/02/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent37/</link>
+      <pubDate>Sun, 18 Feb 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2018/02/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent37/</guid>
+      <description>Step12 外部割込みを実装する ようやく最終stepにきた。長い道のりだった。最後のテーマは外部割込み。シリアルから1文字受信割込みと、コマンド応答ス</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent36-</title>
+      <link>https://blog.wataridori.co.jp/2018/02/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent36/</link>
+      <pubDate>Sat, 17 Feb 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2018/02/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent36/</guid>
+      <description>Step11 タスク間通信を実装する これまでのstepでアプリケーション・プログラムをスレッドとして並行動作させ、メモリ管理を行なってきた。今回はこのス</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent35-</title>
+      <link>https://blog.wataridori.co.jp/2018/02/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent35/</link>
+      <pubDate>Thu, 08 Feb 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2018/02/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent35/</guid>
+      <description>Step10 OSのメモリ管理 OSの役割 コンピュータの資源を管理し、複数のタスクに効率的に割り当てること と言えるだろう。 KOZOSでは処理をタスクとして</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent34-</title>
+      <link>https://blog.wataridori.co.jp/2018/01/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent34/</link>
+      <pubDate>Sat, 27 Jan 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2018/01/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent34/</guid>
+      <description>Step9 優先度スケジューリング 延長戦 kozosファイルの修正が終わったのでシステムコールの追加を行なっていく。 システム・コールの追加 syscall</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent33-</title>
+      <link>https://blog.wataridori.co.jp/2018/01/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent33/</link>
+      <pubDate>Mon, 22 Jan 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2018/01/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent33/</guid>
+      <description>Step9 優先度スケジューリング 後半戦 step8の前半戦でラウンドロビン方式から優先度スレッドにする必要がある。というのを理解した。またアイドル・ス</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent32-</title>
+      <link>https://blog.wataridori.co.jp/2018/01/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent32/</link>
+      <pubDate>Sat, 20 Jan 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2018/01/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent32/</guid>
+      <description>Step9 優先度スケジューリング 前半戦 step8にてスレッドの実装が完了した。これまでの方式は「ラウンドロビン方式」でありキューを使ったFIFOの仕</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent31-</title>
+      <link>https://blog.wataridori.co.jp/2018/01/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent31/</link>
+      <pubDate>Wed, 17 Jan 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2018/01/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent31/</guid>
+      <description>Step8 スレッドを実装する 最終戦 引き続き残りのスレッド管理周りを実装していくことにしよう。 OSの実装（続き） 組み込みハンドラの登録 kozos.cの</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent30-</title>
+      <link>https://blog.wataridori.co.jp/2018/01/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent30/</link>
+      <pubDate>Sun, 14 Jan 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2018/01/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent30/</guid>
+      <description>Step8 スレッドを実装する 延長戦 Step8 後半戦から実装を進めており、OS本体の実装から再開する。スレッド管理とシステムコールの受付、割込み処理を行なって</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent29-</title>
+      <link>https://blog.wataridori.co.jp/2018/01/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent29/</link>
+      <pubDate>Sat, 13 Jan 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2018/01/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent29/</guid>
+      <description>Step8 スレッドを実装する 後半戦 Step8 前半戦でスレッドのアレコレを学んだ。ビジーループでポーリング的な処理を行うと、処理が止まってしまったり、他のアプ</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent28-</title>
+      <link>https://blog.wataridori.co.jp/2018/01/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent28/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2018/01/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent28/</guid>
+      <description>Step8 スレッドを実装する 前半戦 さて、今日からスレッドの実装を行う。これまでは確かに1プロセスで動作しており、複数個の処理を並行して実行することは</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent27-</title>
+      <link>https://blog.wataridori.co.jp/2018/01/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent27/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2018/01/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent27/</guid>
+      <description>Step7 割り込み処理を実装する 最終戦 しばらく空いてしまいましたが、step7の最後のポストになりそうです。これまででブートローダへの割込みハンドラ</description>
+    </item>
+    
+    <item>
+      <title>祝！アドベントカレンダー完走</title>
+      <link>https://blog.wataridori.co.jp/2017/12/%E7%A5%9D%E3%82%A2%E3%83%89%E3%83%99%E3%83%B3%E3%83%88%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E5%AE%8C%E8%B5%B0/</link>
+      <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/%E7%A5%9D%E3%82%A2%E3%83%89%E3%83%99%E3%83%B3%E3%83%88%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E5%AE%8C%E8%B5%B0/</guid>
+      <description>お祝いランチ 26日間（何故か1日多いｗ）無事にアドベントカレンダーを完走したので、お祝いランチ。 品川駅港南口を出て右側にあるビル群の中。 年末</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent26-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent26/</link>
+      <pubDate>Tue, 26 Dec 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent26/</guid>
+      <description>Step7 割り込み処理を実装する 後半戦 step7の中盤戦の最後の方でソフトウェア割込みベクタの話があり、RAM領域の先頭の方にsoftvec領域を用</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent25-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent25/</link>
+      <pubDate>Mon, 25 Dec 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent25/</guid>
+      <description>Step7 割り込み処理を実装する 中盤戦 step7の前半戦では一般的な割込み処理について学んだ。なんとなく理解したような気がする。割込みを受け付けるこ</description>
+    </item>
+    
+    <item>
+      <title>英語の勉強「behind」-Advent24-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7behind-advent24/</link>
+      <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7behind-advent24/</guid>
+      <description>今日は「behind」 まえがき 英語の勉強や鳥が英語で話しているのを聞いている時、印象に残ったり、気になった事を改めて調べたメモです。 なので、</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent23-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent23/</link>
+      <pubDate>Sat, 23 Dec 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent23/</guid>
+      <description>第二部開始、Step7 割り込み処理を実装する さて、これまでのstepを通してブートローダが完成したので、プログラムをシリアル経由でロードし実</description>
+    </item>
+    
+    <item>
+      <title>英語の勉強「must」-Advent22-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7must-advent22/</link>
+      <pubDate>Fri, 22 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7must-advent22/</guid>
+      <description>今日は「must」 「must」と「have to」の違いについて書いた中に、mustに過去形がないことについて、鳥からダメ出しがあったので、も</description>
+    </item>
+    
+    <item>
+      <title>英語の勉強「something like that」-Advent21-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7something-like-that-advent21/</link>
+      <pubDate>Thu, 21 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7something-like-that-advent21/</guid>
+      <description>今日は「something like that」 まえがき 英語の勉強や鳥が英語で話しているのを聞いている時、印象に残ったり、気になった事を改めて調べたメ</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent20-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent20/</link>
+      <pubDate>Wed, 20 Dec 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent20/</guid>
+      <description>Step6 もう一度、Hello World 前半 帰ってきたHello Worldとのことで、 1step目でやったHello WorldはROMに書き込んで直接実行し</description>
+    </item>
+    
+    <item>
+      <title>英語の勉強「must」「have to」-Advent19-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7musthave-to-advent19/</link>
+      <pubDate>Tue, 19 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7musthave-to-advent19/</guid>
+      <description>今日は「must」「have to」 まえがき 英語の勉強や鳥が英語で話しているのを聞いている時、印象に残ったり、気になった事を改めて調べたメモで</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent18-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent18/</link>
+      <pubDate>Mon, 18 Dec 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent18/</guid>
+      <description>Step5 ELFフォーマットの展開 後半 前回はreadelfの結果を用いてelfフォーマットの中身を読んでみた。さて、今回はこれを元にしてelfフォー</description>
+    </item>
+    
+    <item>
+      <title>英語の勉強「agree」「disagree」-Advent17-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7agreedisagree-advent17/</link>
+      <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7agreedisagree-advent17/</guid>
+      <description>今日は「agree」「disagree」 まえがき 英語の勉強や鳥が英語で話しているのを聞いている時、印象に残ったり、気になった事を改めて調べた</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent16-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent16/</link>
+      <pubDate>Sat, 16 Dec 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent16/</guid>
+      <description>Step5 ELFフォーマットの展開 前半 これまででファイルの転送ができるようになった。そこで次は実行形式ファイルを転送しメモリ上に展開することをやって</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent15-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent15/</link>
+      <pubDate>Fri, 15 Dec 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent15/</guid>
+      <description>Step4 シリアル経由でファイルを転送する 延長戦 意外と長くてstep4は4部構成になってしまった。今回はアセンブラについての詳細説明とまとめになりそ</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent14-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent14/</link>
+      <pubDate>Thu, 14 Dec 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent14/</guid>
+      <description>Step4 シリアル経由でファイルを転送する 後半 この記事でstep4は3つめの記事になる。おそらくあと一回で終わるだろう。新しい知識の上に新しい知識を</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent13-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent13/</link>
+      <pubDate>Wed, 13 Dec 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent13/</guid>
+      <description>Step4 シリアル経由でファイルを転送する 中盤 このStep時間が思いの外時間がかかるため3編構成で取り組むことにした。今回は中盤戦のmain.cを修</description>
+    </item>
+    
+    <item>
+      <title>英語の勉強「in my opinion」-Advent12-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7in-my-opinion-advent12/</link>
+      <pubDate>Tue, 12 Dec 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7in-my-opinion-advent12/</guid>
+      <description>今日は「in my opinion」 まえがき 英語の勉強や鳥が英語で話しているのを聞いている時、印象に残ったり、気になった事を改めて調べたメモです。</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent11-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent11/</link>
+      <pubDate>Mon, 11 Dec 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent11/</guid>
+      <description>Step4 シリアル経由でファイルを転送する 前半 このstepではブートローダーというものを作成していくことになりそうだ。ブートローダーがなんであるのか</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent10-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent10/</link>
+      <pubDate>Sun, 10 Dec 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent10/</guid>
+      <description>Step3 静的変数の読み書き 後半 Step3の前半ではメモリの仕組み、どこに何を配置すべきなのか、リンカとローダーの違い辺りの知識が深まった。今回はそ</description>
+    </item>
+    
+    <item>
+      <title>英語の勉強「I&#39;m full」-Advent09-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7im-full-advent09/</link>
+      <pubDate>Sat, 09 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7im-full-advent09/</guid>
+      <description>今日は「I&amp;rsquo;m full.」 まえがき 英語の勉強や鳥が英語で話しているのを聞いている時、印象に残ったり、気になった事を改めて調べたメ</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent08-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent08/</link>
+      <pubDate>Fri, 08 Dec 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent08/</guid>
+      <description>Step3 静的変数の読み書き 前半 どうやらこの本は前半にある程度の知識に関する座学、その後にソースコードに手を加えて先に進んでいくという流れらしい。な</description>
+    </item>
+    
+    <item>
+      <title>英語の勉強「guess」-Advent07-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7guess-advent07/</link>
+      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7guess-advent07/</guid>
+      <description>今日は「guess」 まえがき 英語の勉強や鳥が英語で話しているのを聞いている時、印象に残ったり、気になった事を改めて調べたメモです。 なので、間</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent06-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent06/</link>
+      <pubDate>Wed, 06 Dec 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent06/</guid>
+      <description>Step2 シリアル通信 後半 前回の話でシリアル通信とデータ転送に関して少し理解が進んだ。メモリ空間上にマッピングされているアドレスに対してbyteを書</description>
+    </item>
+    
+    <item>
+      <title>英語の勉強「Why not」-Advent05-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7why-not-advent05/</link>
+      <pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%8B%89%E5%BC%B7why-not-advent05/</guid>
+      <description>まえがき 英語の勉強や鳥が英語で話しているのを聞いている時、印象に残ったり、気になった事を改めて調べたメモです。 なので、間違っていたら、こっそ</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent04-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent04/</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent04/</guid>
+      <description>Step2 シリアル通信 前半 前回までで一通りプログラムの基幹となる部分は作ったような気がする。ref: commit。今回はシリアル通信の話になるらしい</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent03-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent03/</link>
+      <pubDate>Sun, 03 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent03/</guid>
+      <description>クロスコンパイラ作ってなかった そういやホストコンパイルに必要なもの入れただけでクロス用のコンパイラ達作っていなかった。 ホストコンパイラでクロ</description>
+    </item>
+    
+    <item>
+      <title>ブログ移行計画 -その後- HugoBuilder</title>
+      <link>https://blog.wataridori.co.jp/2017/12/%E3%83%96%E3%83%AD%E3%82%B0%E7%A7%BB%E8%A1%8C%E8%A8%88%E7%94%BB-%E3%81%9D%E3%81%AE%E5%BE%8C-hugobuilder/</link>
+      <pubDate>Sat, 02 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/%E3%83%96%E3%83%AD%E3%82%B0%E7%A7%BB%E8%A1%8C%E8%A8%88%E7%94%BB-%E3%81%9D%E3%81%AE%E5%BE%8C-hugobuilder/</guid>
+      <description>ブログの仕組み 嫁の久しぶりのブログ、新しいブログ -Advent02-で書かれていたので少しだけ解説を付け足しておこう。このブログがどうやって</description>
+    </item>
+    
+    <item>
+      <title>久しぶりのブログ、新しいブログ -Advent02-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/%E4%B9%85%E3%81%97%E3%81%B6%E3%82%8A%E3%81%AE%E3%83%96%E3%83%AD%E3%82%B0%E6%96%B0%E3%81%97%E3%81%84%E3%83%96%E3%83%AD%E3%82%B0-advent02/</link>
+      <pubDate>Sat, 02 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/%E4%B9%85%E3%81%97%E3%81%B6%E3%82%8A%E3%81%AE%E3%83%96%E3%83%AD%E3%82%B0%E6%96%B0%E3%81%97%E3%81%84%E3%83%96%E3%83%AD%E3%82%B0-advent02/</guid>
+      <description>久しぶりのブログ 前回のブログは10月10日の「幸せの定義201710（多分最終版）」だったらしい。 今日は12月2日。 軽く1ヶ月半以上ほど書い</description>
+    </item>
+    
+    <item>
+      <title>OS自作入門 -Advent01-</title>
+      <link>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent01/</link>
+      <pubDate>Fri, 01 Dec 2017 21:31:50 +0900</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/12/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-advent01/</guid>
+      <description>アドベントカレンダー始まった フィリピン旅行記も書かなきゃいけないのだけど季節はアドベントカレンダーな季節です。 なのでワタリドリもアドベントカ</description>
+    </item>
+    
+    <item>
+      <title>RasberryPi3と戯れる -その１-</title>
+      <link>https://blog.wataridori.co.jp/2017/11/rasberrypi3%E3%81%A8%E6%88%AF%E3%82%8C%E3%82%8B-%E3%81%9D%E3%81%AE%EF%BC%91/</link>
+      <pubDate>Sat, 11 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/11/rasberrypi3%E3%81%A8%E6%88%AF%E3%82%8C%E3%82%8B-%E3%81%9D%E3%81%AE%EF%BC%91/</guid>
+      <description>アイデア11選からネタアプリに着手！ まだ全然絞り込みをかけているわけではないが、 とりあえず嫁が何やらラズパイに興味を持ったみたいなので二人で</description>
+    </item>
+    
+    <item>
+      <title>100/20/5/1の法則</title>
+      <link>https://blog.wataridori.co.jp/2017/11/100/20/5/1%E3%81%AE%E6%B3%95%E5%89%87/</link>
+      <pubDate>Wed, 08 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/11/100/20/5/1%E3%81%AE%E6%B3%95%E5%89%87/</guid>
+      <description>アイデア出し100個完了。 ついにできた。 このやり方がいいのか全然分からないし、 一つのものについて集中的に考えた訳ではないけど、 アイデアが10</description>
+    </item>
+    
+    <item>
+      <title>面白そうなモノの見つけ方</title>
+      <link>https://blog.wataridori.co.jp/2017/10/%E9%9D%A2%E7%99%BD%E3%81%9D%E3%81%86%E3%81%AA%E3%83%A2%E3%83%8E%E3%81%AE%E8%A6%8B%E3%81%A4%E3%81%91%E6%96%B9/</link>
+      <pubDate>Sun, 29 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/10/%E9%9D%A2%E7%99%BD%E3%81%9D%E3%81%86%E3%81%AA%E3%83%A2%E3%83%8E%E3%81%AE%E8%A6%8B%E3%81%A4%E3%81%91%E6%96%B9/</guid>
+      <description>先に結論からいこう。 自分でもこれだっていうモノは見つかっていない！ ・・・ ・・・・・・ ではこの投稿の趣旨はなんなのか。 「自分流の最近実行してい</description>
+    </item>
+    
+    <item>
+      <title>ブログ移行計画 -その2-</title>
+      <link>https://blog.wataridori.co.jp/2017/10/%E3%83%96%E3%83%AD%E3%82%B0%E7%A7%BB%E8%A1%8C%E8%A8%88%E7%94%BB-%E3%81%9D%E3%81%AE2/</link>
+      <pubDate>Tue, 24 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/10/%E3%83%96%E3%83%AD%E3%82%B0%E7%A7%BB%E8%A1%8C%E8%A8%88%E7%94%BB-%E3%81%9D%E3%81%AE2/</guid>
+      <description>まだ続くブログ移行計画！ 全然移行は進んでいないが環境は徐々に整ってきた。 TODO LIST! zsh =&amp;gt; fish [done!!] tmux install [done!!] vimrc update [done!!] hugo install weebly（このブログサイト）のzip</description>
+    </item>
+    
+    <item>
+      <title>私ができること</title>
+      <link>https://blog.wataridori.co.jp/2017/10/%E7%A7%81%E3%81%8C%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8/</link>
+      <pubDate>Sat, 07 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/10/%E7%A7%81%E3%81%8C%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8/</guid>
+      <description>前に書いた「株式会社ワタリドリの事業内容」の通り、今の弊社の事業は「主に鳥が」エンジニアとしてお仕事してくれるから、何もやっていないようにみ</description>
+    </item>
+    
+    <item>
+      <title>ブログ移行計画 -その1-</title>
+      <link>https://blog.wataridori.co.jp/2017/10/%E3%83%96%E3%83%AD%E3%82%B0%E7%A7%BB%E8%A1%8C%E8%A8%88%E7%94%BB-%E3%81%9D%E3%81%AE1/</link>
+      <pubDate>Fri, 06 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/10/%E3%83%96%E3%83%AD%E3%82%B0%E7%A7%BB%E8%A1%8C%E8%A8%88%E7%94%BB-%E3%81%9D%E3%81%AE1/</guid>
+      <description>エンジニアよりの話です。 事の発端は嫁に このブログエディタ微妙！ と言われたところから始まります。 さて、自分は何に乗せ変えようかなと思いました。</description>
+    </item>
+    
+    <item>
+      <title>結果発表！私達の祖先のツールを探る</title>
+      <link>https://blog.wataridori.co.jp/2017/09/%E7%B5%90%E6%9E%9C%E7%99%BA%E8%A1%A8%E7%A7%81%E9%81%94%E3%81%AE%E7%A5%96%E5%85%88%E3%81%AE%E3%83%84%E3%83%BC%E3%83%AB%E3%82%92%E6%8E%A2%E3%82%8B/</link>
+      <pubDate>Mon, 11 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/09/%E7%B5%90%E6%9E%9C%E7%99%BA%E8%A1%A8%E7%A7%81%E9%81%94%E3%81%AE%E7%A5%96%E5%85%88%E3%81%AE%E3%83%84%E3%83%BC%E3%83%AB%E3%82%92%E6%8E%A2%E3%82%8B/</guid>
+      <description>そういえば、、、「GeneLife® Haplo 祖先遺伝子検査キット」で検体採取した結果が届いていました！ 私の祖先は…… 中国大陸中部で約3万5,000</description>
+    </item>
+    
+    <item>
+      <title>私達の祖先のルーツを探る</title>
+      <link>https://blog.wataridori.co.jp/2017/07/%E7%A7%81%E9%81%94%E3%81%AE%E7%A5%96%E5%85%88%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%84%E3%82%92%E6%8E%A2%E3%82%8B/</link>
+      <pubDate>Sun, 30 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/07/%E7%A7%81%E9%81%94%E3%81%AE%E7%A5%96%E5%85%88%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%84%E3%82%92%E6%8E%A2%E3%82%8B/</guid>
+      <description>「GeneLife® Haplo 祖先遺伝子検査キット」で鳥と私の祖先を調べてみることにしました。 日本人の9人の母 アメリカ・ネイチャー誌に1987年に発</description>
+    </item>
+    
+    <item>
+      <title>進化のタネ</title>
+      <link>https://blog.wataridori.co.jp/2017/07/%E9%80%B2%E5%8C%96%E3%81%AE%E3%82%BF%E3%83%8D/</link>
+      <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.wataridori.co.jp/2017/07/%E9%80%B2%E5%8C%96%E3%81%AE%E3%82%BF%E3%83%8D/</guid>
+      <description>そんなに長く生きていないけど大きく価値観が変わることとか、自分自身の心根で判断したことがある。その時はそれがどんな影響を及ぼすのかそんなに遠</description>
+    </item>
+    
+  </channel>
+</rss>
