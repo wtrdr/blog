@@ -1,0 +1,33 @@
+version: '2'
+
+services:
+  mariadb:
+    container_name: mariadb
+    image: mariadb:10.1.21
+    environment:
+      MYSQL_ROOT_PASSWORD: shlZzG8qeLT3VAsZ
+      MYSQL_USER: wataridori
+      MYSQL_PASSWORD: ErLcjwmIRbTO61BX
+      MYSQL_DATABASE: wataridori-blog
+    volumes_from:
+      - db-data
+    ports:
+      - "3306"
+    restart: always
+    networks:
+      - common_link
+
+  db-data:
+    container_name: db-data
+    image: busybox
+    restart: always
+    stdin_open: true
+    tty: true
+    volumes:
+      - /var/lib/mysql
+    command: /bin/sh
+
+networks:
+  common_link:
+    external: true
+

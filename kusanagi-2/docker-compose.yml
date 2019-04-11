@@ -1,0 +1,57 @@
+version: '2'
+
+services:
+  kusanagi-data:
+    container_name: kusanagi-2
+    image: busybox
+    restart: always
+    stdin_open: true
+    tty: true
+    volumes:
+      - /etc/nginx/conf.d
+      - /etc/httpd/conf.d
+      - /etc/kusanagi.d
+      - ./data:/home/kusanagi
+      - ../uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+    command: /bin/sh
+
+  kusanagi-nginx:
+    image: primestrategy/kusanagi-nginx:1.10.0-1
+    environment:
+      VIRTUAL_HOST: {ドメイン}
+      VIRTUAL_PORT: 443
+      VIRTUAL_PROTO: https
+      LETSENCRYPT_HOST: {ドメイン}
+      LETSENCRYPT_EMAIL: {E-MAILアドレス}
+      LETSENCRYPT_TEST: "false"
+      PROFILE: {ドメイン}
+      FQDN: {ドメイン}
+      WPLANG: ja
+      BCACHE: "off"
+      FCACHE: "off"
+    volumes_from:
+      - kusanagi-data
+    links:
+      - kusanagi-php7:php
+    external_links:
+      - mariadb:mysql
+    ports:
+      - "443"
+    restart: always
+    networks:
+      - common_link
+
+  kusanagi-php7:
+    image: kusanagi-php7
+    external_links:
+      - mariadb:mysql
+    volumes_from:
+      - kusanagi-data
+    restart: always
+    networks:
+      - common_link
+
+networks:
+  common_link:
+    external: true
+
